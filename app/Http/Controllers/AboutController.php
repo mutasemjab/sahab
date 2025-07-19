@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\About;
+use App\Models\Adv;
+use App\Models\Banner;
+use App\Models\CompleteAbout;
+use App\Models\Event;
+use App\Models\Law;
+use App\Models\MunicipalCouncil;
+use App\Models\OurPart;
+use App\Models\PublicSession;
+use App\Models\Service;
+use App\Models\Projects;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class AboutController extends Controller
+{
+    public function index()
+    {
+        $about = About::first();
+        $completeAbouts = CompleteAbout::all();
+        $ourParts = OurPart::all();
+        $municipalCouncils = MunicipalCouncil::all();
+        $laws = Law::all();
+        
+        return view('user.about', compact('about', 'completeAbouts', 'ourParts', 'municipalCouncils', 'laws'));
+    }
+    
+   
+}

@@ -1,0 +1,102 @@
+<?php
+
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ImportantLinkController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HelpUsController;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MediaCenterController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\SuggestionController;
+use App\Http\Controllers\TenderController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group whichf
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
+
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
+
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+    
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
+    Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
+    Route::get('/questions', [HomeController::class, 'getQuestions'])->name('questions');
+    Route::get('/importantLink', [HomeController::class, 'getImportantLinks'])->name('importantLink');
+    Route::get('/complaints', [HomeController::class, 'getComplaints'])->name('complaints');
+    Route::get('/advs', [HomeController::class, 'getAdvs'])->name('advs');
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+        
+    Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestions.index');
+    Route::post('/suggestions', [SuggestionController::class, 'store'])->name('suggestions.store');
+
+
+    Route::get('/complaints', [ComplaintController::class, 'index'])->name('complaints.index');
+    Route::post('/complaints', [ComplaintController::class, 'store'])->name('complaints.store');
+    Route::get('/complaints/track', [ComplaintController::class, 'track'])->name('complaints.track');
+    Route::get('/track-complaints', [ComplaintController::class, 'trackIndex'])->name('track-complaints');
+    Route::get('/complaints/{id}', [ComplaintController::class, 'show'])->name('complaints.show');
+    Route::get('/complaints-details', [ComplaintController::class, 'details'])->name('complaints-details');
+    Route::get('/complaints-details-two/{id}', [ComplaintController::class, 'detailsTwo'])->name('complaints-details-two');
+    
+    Route::get('/services', [ServiceController::class, 'index'])->name('services');
+    Route::get('/services/{id}', [ServiceController::class, 'show'])->name('services.show');
+    Route::post('/services/form', [ServiceController::class, 'storeForm'])->name('services.form.store');
+
+    Route::get('/tenders', [TenderController::class, 'index'])->name('tenders.index');
+    Route::get('/tenders/{id}', [TenderController::class, 'show'])->name('tenders.show');
+    Route::get('/tenders/{id}/download', [TenderController::class, 'downloadDocuments'])->name('tenders.download');
+    Route::get('/tenders/{id}/download-files', [TenderController::class, 'downloadFiles'])->name('tenders.download-files');
+
+    Route::get('/community', [CommunityController::class, 'index'])->name('community.index');
+    Route::post('/community/support-initiative/{id}', [CommunityController::class, 'supportInitiative'])->name('community.support-initiative');
+
+    Route::get('/sessions/{id}', [SessionController::class, 'show'])->name('sessions.show');
+
+    Route::get('/media-center', [MediaCenterController::class, 'index'])->name('media.center');
+
+    // Advertisements Routes
+    Route::get('/advertisements', [MediaCenterController::class, 'showAllAdvertisements'])->name('advertisements.index');
+    Route::get('/advertisements/{id}', [MediaCenterController::class, 'showAdvertisement'])->name('advertisements.show');
+
+    // News Routes
+    Route::get('/news', [MediaCenterController::class, 'showAllNews'])->name('news.index');
+    Route::get('/news/{id}', [MediaCenterController::class, 'showNews'])->name('news.show');
+
+    Route::get('/helpus', [HelpUsController::class, 'index'])->name('helpus');
+    Route::post('/helpus', [HelpUsController::class, 'store'])->name('helpus.store');
+
+    Route::get('/question', [QuestionController::class, 'index'])->name('question');
+    Route::get('/question/search', [QuestionController::class, 'search'])->name('question.search');
+
+    Route::get('/important-links', [ImportantLinkController::class, 'index'])->name('important-links.index');
+    
+    Route::get('/site-map', [SiteMapController::class, 'index'])->name('site-map');
+
+});
+
+Route::fallback(function () {
+    return view('user.not-found'); // or whatever view name you prefer
+});

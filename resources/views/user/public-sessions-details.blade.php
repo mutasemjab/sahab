@@ -4,7 +4,7 @@
 
 <div class="breadcrumb-bar">
   <div class="breadcrumb-container">
-    <a href="#">{{ __('front.home') }}</a>
+    <a href="{{ route('home') }}">{{ __('front.home') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
     <a href="{{ route('community.index') }}">{{ __('front.community') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>

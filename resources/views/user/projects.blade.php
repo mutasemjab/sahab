@@ -4,9 +4,9 @@
 
 <div class="breadcrumb-bar">
   <div class="breadcrumb-container">
-    <a href="#">{{ __('front.home') }}</a>
+    <a href="{{ route('home') }}">{{ __('front.home') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
-    <a href="#" class="active">{{ __('front.projects') }}</a>
+    <a href="{{route('projects')}}" class="active">{{ __('front.projects') }}</a>
   </div>
 </div>
 
@@ -50,10 +50,10 @@
               {{ __('front.planned') }}
             @endif
           </span>
-          <img src="{{ asset('storage/' . $project->photo) }}" alt="{{ $locale == 'ar' ? $project->title_ar : $project->title_en }}">
+          <img src="{{ asset('assets/admin/uploads/' . $project->photo) }}" alt="{{ $locale == 'ar' ? $project->title_ar : $project->title_en }}">
           <div class="project-content">
             <h3>{{ $locale == 'ar' ? $project->title_ar : $project->title_en }}</h3>
-            <p>{{ Str::limit($locale == 'ar' ? $project->description_ar : $project->description_en, 100) }}</p>
+            <p>{!! Str::limit($locale == 'ar' ? $project->description_ar : $project->description_en, 100) !!}</p>
             @if($project->time)
               <p class="start-date">{{ __('front.starting_from') }}: {{ $project->time }}</p>
             @endif

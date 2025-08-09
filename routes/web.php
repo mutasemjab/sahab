@@ -42,7 +42,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
     Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
-    Route::get('/questions', [HomeController::class, 'getQuestions'])->name('questions');
+    Route::get('/questions', [QuestionController::class, 'index'])->name('questions');
     Route::get('/importantLink', [HomeController::class, 'getImportantLinks'])->name('importantLink');
     Route::get('/complaints', [HomeController::class, 'getComplaints'])->name('complaints');
     Route::get('/advs', [HomeController::class, 'getAdvs'])->name('advs');
@@ -70,7 +70,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/tenders/{id}/download', [TenderController::class, 'downloadDocuments'])->name('tenders.download');
     Route::get('/tenders/{id}/download-files', [TenderController::class, 'downloadFiles'])->name('tenders.download-files');
 
-    Route::get('/community', [CommunityController::class, 'index'])->name('community.index');
+    Route::get('/communitydetails', [CommunityController::class, 'index'])->name('community.index');
     Route::post('/community/support-initiative/{id}', [CommunityController::class, 'supportInitiative'])->name('community.support-initiative');
 
     Route::get('/sessions/{id}', [SessionController::class, 'show'])->name('sessions.show');
@@ -94,6 +94,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/important-links', [ImportantLinkController::class, 'index'])->name('important-links.index');
     
     Route::get('/site-map', [SiteMapController::class, 'index'])->name('site-map');
+    
+    Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
+    
+    Route::get('/suggestion', [SuggestionController::class, 'index'])->name('suggestion');
+    
+    Route::get('/complaintdetails', [ComplaintController::class, 'details'])->name('complaintdetails');
+    
+    Route::get('/complaintfollow', [ComplaintController::class, 'trackIndex'])->name('complaintfollow');
+    
+    Route::get('/community', [ComplaintController::class, 'trackIndex'])->name('complaintfollow');
 
 });
 

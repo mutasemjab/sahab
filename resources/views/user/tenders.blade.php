@@ -3,9 +3,9 @@
 @section('content')
 <div class="breadcrumb-bar">
   <div class="breadcrumb-container">
-    <a href="#">{{ __('front.home') }}</a>
+    <a href="{{ route('home') }}">{{ __('front.home') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
-    <a href="#" class="active">{{ __('front.tenders_bids') }}</a>
+    <a href="{{ route('tenders.index') }}" class="active">{{ __('front.tenders_bids') }}</a>
   </div>
 </div>
 

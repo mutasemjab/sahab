@@ -68,7 +68,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="type" class="form-label">{{ __('messages.type') }}</label>
-                        <select class="form-select @error('type') is-invalid @enderror" id="type" name="type" required>
+                        <select class="form-control @error('type') is-invalid @enderror" id="type" name="type" required>
                             <option value="">Select Type</option>
                             <option value="1" {{ old('type', $project->type) == '1' ? 'selected' : '' }}>{{ __('messages.done') }}</option>
                             <option value="2" {{ old('type', $project->type) == '2' ? 'selected' : '' }}>{{ __('messages.on_going') }}</option>

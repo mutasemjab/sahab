@@ -5,6 +5,14 @@ body {
   background: #fff;
 }
 
+button {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+input {
+    font-family: 'Cairo', sans-serif !important;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -21,6 +29,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+select {
+    font-family: 'Cairo', sans-serif !important;
+    padding: 14px !important;
 }
 
 .header-logo img {
@@ -60,7 +73,7 @@ body {
 }
 
 .mobile-nav {
-  display: none;
+  display: none!important;
   flex-direction: column;
   background: white;
   position: absolute;
@@ -81,7 +94,7 @@ body {
 
 @media (max-width: 768px) {
   .header-menu {
-    display: none;
+    display: none !important;
   }
   .mobile-menu-icon {
     display: block;
@@ -259,6 +272,7 @@ body {
 
 h2.about-h {
   text-align: center;
+   color: #065f46;
 }
 
 .about-btn:hover {
@@ -362,7 +376,7 @@ h2.about-h {
 
 @media (max-width: 600px) {
   .calendar-grid {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     font-size: 12px;
   }
   .sessions-grid {
@@ -373,6 +387,10 @@ h2.about-h {
     width: 282px !important;
 }
 
+.sessions-grid {
+    gap: 85px;
+}
+
 }
 
 .services-section {
@@ -381,11 +399,6 @@ h2.about-h {
   text-align: center;
 }
 
-.section-title {
-  font-size: 26px;
-  color: #065f46;
-  margin-bottom: 40px;
-}
 
 .services-grid {
   display: grid;
@@ -1127,7 +1140,7 @@ h2.about-h {
   text-align: center;
 }
 
-.laws-section .section-title {
+.laws-section {
   font-size: 28px;
   color: #065f46;
   margin-bottom: 40px;
@@ -1204,11 +1217,6 @@ h2.about-h {
   text-align: center;
 }
 
-.section-title {
-  color: #065f46;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
 
 .section-subtitle {
   color: #444;
@@ -1343,12 +1351,6 @@ h2.about-h {
   direction: rtl;
 }
 
-.section-title {
-  color: #065f46;
-  font-size: 28px;
-  margin-bottom: 10px;
-  text-align: center;
-}
 
 .section-description {
   text-align: center;
@@ -1371,6 +1373,8 @@ h2.about-h {
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
+  font-family: 'Cairo', sans-serif !important;
+  
 }
 
 .status-buttons .active {
@@ -1450,12 +1454,6 @@ h2.about-h {
   padding: 10px 20px;
   text-align: center;
   direction: rtl;
-}
-
-.section-title {
-  font-size: 28px;
-  color: #065f46;
-  margin-bottom: 10px;
 }
 
 .section-description {
@@ -1695,7 +1693,7 @@ section.suggestions-section {
   background-color: #fafafa;
 }
 
-.complaint-section .section-title {
+.complaint-section {
   color: #0d6a4e;
   font-size: 28px;
   font-weight: bold;
@@ -2039,13 +2037,6 @@ section.suggestions-section {
   padding: 50px 20px;
 }
 
-.section-title {
-  text-align: center;
-  color: #0b6b4f;
-  font-size: 26px;
-  margin-bottom: 10px;
-}
-
 .section-subtitle {
   text-align: center;
   font-size: 16px;
@@ -2200,7 +2191,7 @@ section.suggestions-section {
   margin-bottom: 40px;
 }
 
-.track-heading .section-title {
+.track-heading {
   color: #0b6b4f;
   font-size: 28px;
   margin-bottom: 8px;
@@ -2263,7 +2254,7 @@ section.suggestions-section {
   color: #027b54;
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 25px!important;
 }
 
 .section-desc {
@@ -2346,12 +2337,6 @@ section.suggestions-section {
 .municipal-services {
   text-align: center;
   padding: 40px 20px;
-}
-
-.section-title {
-  color: #027b54;
-  font-size: 24px;
-  font-weight: bold;
 }
 
 .section-desc {
@@ -3833,6 +3818,16 @@ input[type="checkbox"] {
   .mutasem-orgs-grid {
     grid-template-columns: 1fr;
   }
+  
+  .status-buttons button {
+    margin: 2px !important;
+    width: 143px !important;
+}
+
+form#search-form {
+    margin: 25px !important;
+}
+
 }
 
 

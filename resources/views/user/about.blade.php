@@ -4,9 +4,9 @@
 
 <div class="breadcrumb-bar">
   <div class="breadcrumb-container">
-    <a href="#">{{ __('front.home') }}</a>
+    <a href="{{route('home')}}">{{ __('front.home') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
-    <a href="#" class="active">{{ __('front.about_sahab') }}</a>
+    <a href="{{route('about')}}" class="active">{{ __('front.about_sahab') }}</a>
   </div>
 </div>
 
@@ -55,9 +55,9 @@
   <div class="cards">
     @foreach($completeAbouts as $completeAbout)
       <div class="card">
-        <div class="icon">{!! $completeAbout->icon !!}</div>
+        <div class="{!! $completeAbout->icon !!}" style="color: #1b7b63;"></div>
         <h3>{{ $locale == 'ar' ? $completeAbout->title_ar : $completeAbout->title_en }}</h3>
-        <p>{{ $locale == 'ar' ? $completeAbout->description_ar : $completeAbout->description_en }}</p>
+        <p>{!! $locale == 'ar' ? $completeAbout->description_ar : $completeAbout->description_en !!}</p>
       </div>
     @endforeach
   </div>
@@ -95,9 +95,9 @@
   <div class="council-grid">
     @foreach($municipalCouncils as $member)
       <div class="member-box">
-        <img src="{{ asset('storage/' . $member->icon) }}" alt="{{ $locale == 'ar' ? $member->title_ar : $member->title_en }}">
+        <img src="{{ asset('assets/admin/uploads/' . $member->icon) }}" alt="{{ $locale == 'ar' ? $member->title_ar : $member->title_en }}">
         <h4>{{ $locale == 'ar' ? $member->title_ar : $member->title_en }}</h4>
-        <p>{{ $locale == 'ar' ? $member->description_ar : $member->description_en }}</p>
+        <p>{!! $locale == 'ar' ? $member->description_ar : $member->description_en !!}</p>
       </div>
     @endforeach
   </div>
@@ -111,8 +111,8 @@
         <div class="law-icon">📄</div>
         <div class="law-content">
           <h3 class="law-title">{{ $locale == 'ar' ? $law->title_ar : $law->title_en }}</h3>
-          <p class="law-desc">{{ $locale == 'ar' ? $law->description_ar : $law->description_en }}</p>
-          <a href="{{ asset('storage/' . $law->pdf) }}" class="law-download" download>{{ __('front.download') }} <span>PDF</span> 📥</a>
+          <p class="law-desc">{!! $locale == 'ar' ? $law->description_ar : $law->description_en !!}</p>
+          <a href="{{ asset('assets/admin/uploads/' . $law->pdf) }}" class="law-download" download>{{ __('front.download') }} <span>PDF</span> 📥</a>
         </div>
       </div>
     @endforeach

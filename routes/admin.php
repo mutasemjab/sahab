@@ -98,7 +98,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('abouts', AboutController::class);
         Route::resource('complete_abouts', CompleteAboutController::class);
         Route::resource('events', EventController::class);
-        Route::resource('services', ServiceController::class);
+        Route::resource('services', App\Http\Controllers\Admin\ServiceController::class);
         Route::resource('public-sessions', PublicSessionController::class);
         Route::resource('projects', ProjectController::class);
 

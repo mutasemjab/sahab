@@ -31,8 +31,10 @@
              <h2 class="about-h">{{ __('front.about_municipality') }}</h2>
              <div class="about-container">
                  <div class="about-content">
-                     {!! nl2br(e($about->{'description_' . $locale})) !!}
-                     <a href="#" class="about-btn">{{ __('front.learn_more') }}</a>
+                     <p>
+                     {!!$about->{'description_' . $locale} !!}
+                     </p>
+                     <a href="{{route('about')}}" class="about-btn">{{ __('front.learn_more') }}</a>
                  </div>
                  <div class="about-image">
                      <img src="{{ asset('assets/admin/uploads/' . $about->photo) }}"
@@ -92,10 +94,10 @@
                          @if ($session->time)
                              <div class="session-time"><i class="fas fa-clock"></i> {{ $session->time }}</div>
                          @endif
-                         <button class="session-btn {{ $session->type != 1 ? 'disabled' : '' }}"
+                        <a href="#"> <button class="session-btn {{ $session->type != 1 ? 'disabled' : '' }}"
                              {{ $session->type != 1 ? 'disabled' : '' }}>
                              {{ $session->type == 1 ? __('front.join_session') : __('front.learn_more') }}
-                         </button>
+                         </button></a>
                      </div>
                  </div>
              @endforeach
@@ -150,7 +152,7 @@
          <div class="news-grid">
              @foreach ($advs as $adv)
                  <div class="news-card">
-                     <img src="{{ asset('assets/images/' . $adv->photo) }}" alt="{{ $adv->{'title_' . $locale} }}">
+                     <img src="{{ asset('assets/admin/uploads/' . $adv->photo) }}" alt="{{ $adv->{'title_' . $locale} }}">
                      <div class="news-content">
                          <span class="news-date">{{ \Carbon\Carbon::parse($adv->date_of_adv)->format('d M Y') }}</span>
                          <h3>{{ $adv->{'title_' . $locale} }}</h3>
@@ -175,18 +177,24 @@
                  <i class="fas fa-calendar-alt"></i>
                  <span>{{ __('front.event_calendar') }}</span>
              </div>
-             <div class="quick-card">
+             <a href="{{route('questions')}}">
+                <div class="quick-card">
                  <i class="fas fa-info-circle"></i>
                  <span>{{ __('front.faq') }}</span>
              </div>
+             </a>
+             <a href="{{route('contact.index')}}">
              <div class="quick-card">
                  <i class="fas fa-phone-alt"></i>
                  <span>{{ __('front.contact_guide') }}</span>
              </div>
+              </a>
+             <a href="{{route('contact.index')}}">
              <div class="quick-card">
                  <i class="fas fa-map-marked-alt"></i>
                  <span>{{ __('front.maps') }}</span>
              </div>
+              </a>
          </div>
      </section>
 
@@ -237,70 +245,85 @@
              setInterval(nextSlide, 5000);
          });
 
-         // التقويم
-         const daysOfWeek = ["السبت", "الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة"];
-         const eventDates = ["2025-04-05", "2025-04-15", "2025-04-26", "2025-04-27", "2025-04-29"];
-         let currentDate = new Date();
+    // التقويم
+const daysOfWeek = ["السبت", "الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة"];
 
-         function renderCalendar() {
-             const grid = document.getElementById("calendar-grid");
-             const monthSpan = document.getElementById("calendar-month");
-             const selectedDateSpan = document.getElementById("calendar-selected-date");
+// Get events data from Laravel
+const events = @json($events);
 
-             const year = currentDate.getFullYear();
-             const month = currentDate.getMonth();
-             const day = currentDate.getDate();
+let currentDate = new Date();
 
-             const firstDay = new Date(year, month, 1);
-             const lastDay = new Date(year, month + 1, 0);
-             const firstWeekday = (firstDay.getDay() + 1) % 7;
-             const totalDays = lastDay.getDate();
+function renderCalendar() {
+    const grid = document.getElementById("calendar-grid");
+    const monthSpan = document.getElementById("calendar-month");
+    const selectedDateSpan = document.getElementById("calendar-selected-date");
 
-             const monthNames = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر",
-                 "نوفمبر", "ديسمبر"
-             ];
-             const today = new Date();
-             const todayStr = today.toISOString().split('T')[0];
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const day = currentDate.getDate();
 
-             monthSpan.innerText = `${monthNames[month]} ${year}`;
-             selectedDateSpan.innerText = `${daysOfWeek[(today.getDay()+6)%7]}، ${day} ${monthNames[month]}`;
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const firstWeekday = (firstDay.getDay() + 1) % 7;
+    const totalDays = lastDay.getDate();
 
-             grid.innerHTML = "";
+    const monthNames = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر",
+        "نوفمبر", "ديسمبر"
+    ];
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0];
 
-             for (let i = 0; i < firstWeekday; i++) {
-                 const empty = document.createElement("div");
-                 empty.className = "calendar-day empty-day";
-                 grid.appendChild(empty);
-             }
+    monthSpan.innerText = `${monthNames[month]} ${year}`;
+    selectedDateSpan.innerText = `${daysOfWeek[(today.getDay()+6)%7]}، ${day} ${monthNames[month]}`;
 
-             for (let i = 1; i <= totalDays; i++) {
-                 const fullDate = `${year}-${(month+1).toString().padStart(2, "0")}-${i.toString().padStart(2, "0")}`;
-                 const dayDiv = document.createElement("div");
-                 dayDiv.className = "calendar-day";
+    grid.innerHTML = "";
 
-                 if (fullDate === todayStr) {
-                     dayDiv.classList.add("today");
-                 } else if (eventDates.includes(fullDate)) {
-                     dayDiv.classList.add("event-day");
-                     dayDiv.innerHTML = `${i}<small>اجتماع المجتمع</small>`;
-                 } else {
-                     dayDiv.innerText = i;
-                 }
+    for (let i = 0; i < firstWeekday; i++) {
+        const empty = document.createElement("div");
+        empty.className = "calendar-day empty-day";
+        grid.appendChild(empty);
+    }
 
-                 grid.appendChild(dayDiv);
-             }
-         }
+    for (let i = 1; i <= totalDays; i++) {
+        const fullDate = `${year}-${(month+1).toString().padStart(2, "0")}-${i.toString().padStart(2, "0")}`;
+        const dayDiv = document.createElement("div");
+        dayDiv.className = "calendar-day";
 
-         function prevMonth() {
-             currentDate.setMonth(currentDate.getMonth() - 1);
-             renderCalendar();
-         }
+        if (fullDate === todayStr) {
+            dayDiv.classList.add("today");
+        }
+        
+        // Check if there's an event on this date
+        const eventOnThisDate = events.find(event => event.date === fullDate);
+        if (eventOnThisDate) {
+            dayDiv.classList.add("event-day");
+            dayDiv.innerHTML = `${i}<small>${eventOnThisDate.title}</small>`;
+            
+            // Make event day clickable and add cursor pointer style
+            dayDiv.style.cursor = 'pointer';
+            dayDiv.onclick = function() {
+                if (eventOnThisDate.link_google_meet) {
+                    window.open(eventOnThisDate.link_google_meet, '_blank');
+                }
+            };
+        } else {
+            dayDiv.innerText = i;
+        }
 
-         function nextMonth() {
-             currentDate.setMonth(currentDate.getMonth() + 1);
-             renderCalendar();
-         }
+        grid.appendChild(dayDiv);
+    }
+}
 
-         document.addEventListener("DOMContentLoaded", renderCalendar);
+function prevMonth() {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+}
+
+function nextMonth() {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+}
+
+document.addEventListener("DOMContentLoaded", renderCalendar);
      </script>
  @endsection

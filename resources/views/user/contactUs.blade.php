@@ -4,9 +4,9 @@
 
 <div class="breadcrumb-bar">
   <div class="breadcrumb-container">
-    <a href="#">{{ __('front.home') }}</a>
+    <a href="{{ route('home') }}">{{ __('front.home') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
-    <a href="#" class="active">{{ __('front.contact_us') }}</a>
+    <a href="{{route('contact.index')}}" class="active">{{ __('front.contact_us') }}</a>
   </div>
 </div>
 
@@ -58,14 +58,21 @@
       @endif
       
       <h3>{{ __('front.our_location') }}</h3>
-      <div class="map-container">
+     <div class="map-container">
         @if($setting && $setting->google_map)
-          <iframe
-            src="{{ $setting->google_map }}"
-            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-          </iframe>
+            @php
+                $fixedUrl = str_replace('https://maps.google.com/embed', 'https://www.google.com/maps/embed', $setting->google_map);
+            @endphp
+            <iframe 
+                src="{{ $fixedUrl }}"
+                width="100%" 
+                height="250" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
         @endif
-      </div>
+    </div>
     </div>
   </div>
 </section>

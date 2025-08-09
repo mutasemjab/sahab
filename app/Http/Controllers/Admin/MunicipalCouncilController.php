@@ -28,15 +28,16 @@ class MunicipalCouncilController extends Controller
             'title_ar' => 'required|string|max:255',
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
-            'icon' => 'required|string|max:255',
+            'icon' => 'required',
         ]);
 
+        $photoPath = uploadImage('assets/admin/uploads', $request->icon);
         DB::table('municipal_councils')->insert([
             'title_en' => $request->title_en,
             'title_ar' => $request->title_ar,
             'description_en' => $request->description_en,
             'description_ar' => $request->description_ar,
-            'icon' => $request->icon,
+            'icon' => $photoPath,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -60,15 +61,17 @@ class MunicipalCouncilController extends Controller
             'title_ar' => 'required|string|max:255',
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
-            'icon' => 'required|string|max:255',
+            'icon' => 'required',
         ]);
+
+        $photoPath = uploadImage('assets/admin/uploads', $request->icon);
 
         DB::table('municipal_councils')->where('id', $id)->update([
             'title_en' => $request->title_en,
             'title_ar' => $request->title_ar,
             'description_en' => $request->description_en,
             'description_ar' => $request->description_ar,
-            'icon' => $request->icon,
+            'icon' => $photoPath,
             'updated_at' => now(),
         ]);
 

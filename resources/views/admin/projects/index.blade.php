@@ -33,7 +33,7 @@
                             <td>{{ Str::limit($project->title_ar, 30) }}</td>
                             <td>
                                 @if($project->photo)
-                                    <img src="{{ asset('storage/' . $project->photo) }}" alt="Project" style="width: 50px; height: 50px; object-fit: cover;">
+                                    <img src="{{ asset('assets/admin/uploads/' . $project->photo) }}" alt="Project" style="width: 50px; height: 50px; object-fit: cover;">
                                 @endif
                             </td>
                             <td>

@@ -32,8 +32,8 @@
                             <td>{{ Str::limit(strip_tags($complete_about->description_en), 50) }}</td>
                             <td>{{ Str::limit(strip_tags($complete_about->description_ar), 50) }}</td>
                             <td>
-                                @if($complete_about->photo)
-                                    <img src="{{ asset('assets/admin/uploads/' . $complete_about->photo) }}" alt="complete_about" style="width: 50px; height: 50px; object-fit: cover;">
+                                @if($complete_about->icon)
+                                   {{ $complete_about->icon}}
                                 @endif
                             </td>
                             <td>{{ $complete_about->created_at }}</td>

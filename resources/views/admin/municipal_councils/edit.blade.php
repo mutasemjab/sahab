@@ -12,7 +12,7 @@
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('municipal-councils.update', $municipalCouncil->id) }}" method="POST">
+        <form action="{{ route('municipal-councils.update', $municipalCouncil->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             
@@ -40,15 +40,18 @@
                 </div>
             </div>
             
-            <div class="mb-3">
-                <label for="icon" class="form-label">{{ __('messages.icon') }}</label>
-                <input type="text" class="form-control @error('icon') is-invalid @enderror" 
-                       id="icon" name="icon" value="{{ old('icon', $municipalCouncil->icon) }}" 
-                       placeholder="fas fa-building" required>
+              <div class="mb-3">
+                <label for="photo" class="form-label">{{ __('messages.photo') }}</label>
+                @if($municipalCouncil->icon)
+                    <div class="mb-2">
+                        <img src="{{ asset('assets/admin/uploads/' . $municipalCouncil->icon) }}" alt="Current icon" class="img-thumbnail" style="max-height: 200px;">
+                    </div>
+                @endif
+                <input type="file" class="form-control @error('icon') is-invalid @enderror" 
+                       id="icon" name="icon" accept="image/*">
                 @error('icon')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
-                <small class="text-muted">Enter FontAwesome icon class (e.g., fas fa-building)</small>
             </div>
             
             <div class="row">

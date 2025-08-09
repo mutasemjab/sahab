@@ -23,7 +23,17 @@ class HomeController extends Controller
        $projects = Projects::get();
        $advs = Adv::get();
        $locale = app()->getLocale();
-        return view('user.home',compact('banners','about','services','publicSessions','projects','advs','locale'));
+
+        $events = Event::get()->map(function($event) use ($locale) {
+            return [
+                'date' => $event->date_of_event,
+                'title' => $locale === 'ar' ? $event->title_ar : $event->title_en,
+                'link_google_meet' => $event->link_google_meet
+            ];
+        });
+    
+
+        return view('user.home',compact('events','banners','about','services','publicSessions','projects','advs','locale'));
     }
     
     public function getAboutUs()

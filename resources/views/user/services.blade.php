@@ -3,9 +3,9 @@
 @section('content')
 <div class="breadcrumb-bar">
   <div class="breadcrumb-container">
-    <a href="#">{{ __('front.home') }}</a>
+    <a href="{{ route('home') }}">{{ __('front.home') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
-    <a href="#" class="active">{{ __('front.services') }}</a>
+    <a href="{{ route('services.index') }}" class="active">{{ __('front.services') }}</a>
   </div>
 </div>
 
@@ -21,9 +21,11 @@
   <div class="cards-grid">
     @forelse($services as $service)
       <div class="card">
-        <div class="icon">{!! $service->icon !!}</div>
+      <div class="service-icon">
+                         <i class="{{ $service->icon }}"></i>
+       </div>
         <h4>{{ $locale == 'ar' ? $service->title_ar : $service->title_en }}</h4>
-        <p>{{ Str::limit($locale == 'ar' ? $service->description_ar : $service->description_en, 80) }}</p>
+        <p>{!! Str::limit($locale == 'ar' ? $service->description_ar : $service->description_en, 80) !!}</p>
         <a href="{{ route('services.show', $service->id) }}">{{ __('front.learn_more') }} ←</a>
       </div>
     @empty

@@ -3,7 +3,7 @@
 @section('content')
 <div class="breadcrumb-bar">
   <div class="breadcrumb-container">
-    <a href="#">الرئيسية</a>
+    <a href="{{ route('home') }}">الرئيسية</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
     <a href="#" class="active">خريطة الموقع</a>
   </div>

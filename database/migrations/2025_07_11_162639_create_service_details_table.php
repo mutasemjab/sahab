@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('video');
             $table->text('description_en');
             $table->text('description_ar');
+            $table->text('steps');
             $table->text('condition');
             $table->text('required_file');
             $table->timestamps();

@@ -25,7 +25,8 @@ class PublicSessionController extends Controller
     {
         $request->validate([
             'date_of_event' => 'required|date',
-            'time' => 'nullable|string|max:255',
+            'from_time' => 'nullable|string|max:255',
+            'to_time' => 'nullable|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_ar' => 'required|string|max:255',
             'description_en' => 'required|string',
@@ -37,7 +38,8 @@ class PublicSessionController extends Controller
 
         DB::table('public_sessions')->insert([
             'date_of_event' => $request->date_of_event,
-            'time' => $request->time,
+            'from_time' => $request->from_time,
+            'to_time' => $request->to_time,
             'title_en' => $request->title_en,
             'title_ar' => $request->title_ar,
             'description_en' => $request->description_en,
@@ -65,7 +67,8 @@ class PublicSessionController extends Controller
     {
         $request->validate([
             'date_of_event' => 'required|date',
-            'time' => 'nullable|string|max:255',
+             'from_time' => 'nullable|string|max:255',
+            'to_time' => 'nullable|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_ar' => 'required|string|max:255',
             'description_en' => 'required|string',
@@ -77,7 +80,8 @@ class PublicSessionController extends Controller
 
         DB::table('public_sessions')->where('id', $id)->update([
             'date_of_event' => $request->date_of_event,
-            'time' => $request->time,
+            'from_time' => $request->from_time,
+            'to_time' => $request->to_time,
             'title_en' => $request->title_en,
             'title_ar' => $request->title_ar,
             'description_en' => $request->description_en,

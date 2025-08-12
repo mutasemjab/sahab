@@ -25,7 +25,7 @@
                         <div class="row">
                             @foreach($photos as $photo)
                                 <div class="col-md-2 mb-2">
-                                    <img src="{{ asset($photo) }}" alt="Gallery" class="img-thumbnail" style="width: 100%; height: 100px; object-fit: cover;">
+                                    <img src="{{ asset('assets/admin/uploads/'.$photo) }}" alt="Gallery" class="img-thumbnail" style="width: 100%; height: 100px; object-fit: cover;">
                                 </div>
                             @endforeach
                         </div>

@@ -26,7 +26,7 @@
             <div class="mutasem-card-progress">
               <span class="supporter-count-<?php echo e($initiative->id); ?>"><?php echo e($initiative->supporting_users_count); ?> <?php echo e(__('front.supporters')); ?></span>
               <?php if($initiative->date_finish): ?>
-                <span><?php echo e(__('front.ends_on')); ?> <?php echo e(Carbon\Carbon::parse($initiative->date_finish)->format('d M Y')); ?></span>
+                <span><?php echo e(__('front.ends_on')); ?> <?php echo e(Carbon\Carbon::parse($initiative->date_finish)->locale('ar')->translatedFormat('j F Y')); ?></span>
               <?php endif; ?>
               <?php
                 $supportCount = $initiative->supporting_users_count;
@@ -75,12 +75,22 @@
             </span>
             <h4><?php echo e(app()->getLocale() == 'ar' ? $session->title_ar : $session->title_en); ?></h4>
             <p><?php echo e(Str::limit(app()->getLocale() == 'ar' ? $session->description_ar : $session->description_en, 100)); ?></p>
-            <?php if($session->date_of_event && $session->time): ?>
               <p class="mutasem-time">
-                <?php echo e(Carbon\Carbon::parse($session->date_of_event)->format('d M Y')); ?> | <?php echo e($session->time); ?>
+               <?php if($session->from_time): ?>
+                            <?php
+                                \Carbon\Carbon::setLocale('ar');
+                                $fromTime = \Carbon\Carbon::parse($session->from_time);
+                                $toTime = \Carbon\Carbon::parse($session->to_time);
+                            ?>
+                            <div class="session-time">
+                                <i class="fas fa-clock"></i> 
+                                <?php echo e($fromTime->format('g:i')); ?> <?php echo e($fromTime->format('A') == 'AM' ? 'صباحا' : 'مساء'); ?> - 
+                                <?php echo e($toTime->format('g:i')); ?> <?php echo e($toTime->format('A') == 'AM' ? 'صباحا' : 'مساء'); ?>
 
+                            </div>
+                        <?php endif; ?>
               </p>
-            <?php endif; ?>
+         
             <?php if($session->type == 1): ?>
              <a href="<?php echo e(route('sessions.show', $session->id)); ?>" class="mutasem-primary-btn">
                   <?php echo e(__('front.join_session')); ?>

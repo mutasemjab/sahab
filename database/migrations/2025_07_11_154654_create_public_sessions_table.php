@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('public_sessions', function (Blueprint $table) {
             $table->id();
             $table->date('date_of_event');
-            $table->string('time')->nullable();
+            $table->string('from_time')->nullable();
+            $table->string('to_time')->nullable();
             $table->string('title_en');
             $table->string('title_ar');
             $table->text('description_en');

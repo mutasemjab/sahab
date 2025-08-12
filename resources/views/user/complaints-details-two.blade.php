@@ -75,7 +75,7 @@
         <div class="info-label">{{ __('front.complaint_images') }}:</div>
         <div class="images-wrapper">
           @foreach(json_decode($complaint->photo) as $photo)
-            <img src="{{ asset('storage/' . $photo) }}" alt="{{ __('front.complaint_image') }}" onclick="openImageModal(this)">
+            <img src="{{ asset('assets/admin/uploads/' . $photo) }}" alt="{{ __('front.complaint_image') }}" onclick="openImageModal(this)">
           @endforeach
         </div>
       @endif
@@ -84,7 +84,7 @@
         <div class="info-label">{{ __('front.additional_attachments') }}:</div>
         <div class="images-wrapper">
           @foreach(json_decode($complaint->another_photo) as $photo)
-            <img src="{{ asset('storage/' . $photo) }}" alt="{{ __('front.additional_attachment') }}" onclick="openImageModal(this)">
+            <img src="{{ asset('assets/admin/uploads/' . $photo) }}" alt="{{ __('front.additional_attachment') }}" onclick="openImageModal(this)">
           @endforeach
         </div>
       @endif

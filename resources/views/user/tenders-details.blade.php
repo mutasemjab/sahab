@@ -6,7 +6,7 @@
   <div class="breadcrumb-container">
     <a href="#">{{ __('front.home') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
-    <a href="{{ route('tenders.index') }}">{{ __('front.tenders_bids') }}</a>
+    <a href="{{ route('wbsiteTenders.index') }}">{{ __('front.tenders_bids') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
     <a href="#" class="active">{{ __('front.tender_details') }}</a>
   </div>
@@ -157,7 +157,7 @@
       </div>
 
       <div class="sidebar-item back-to-tenders">
-        <a href="{{ route('tenders.index') }}" class="btn-back">{{ __('front.back_to_tenders') }}</a>
+        <a href="{{ route('wbsiteTenders.index') }}" class="btn-back">{{ __('front.back_to_tenders') }}</a>
       </div>
     </aside>
   </div>

@@ -13,7 +13,8 @@ class PublicSessionSeeder extends Seeder
         DB::table('public_sessions')->insert([
             [
                 'date_of_event' => '2025-08-10',
-                'time' => '14:00',
+                'from_time' => '14:00',
+                'to_time' => '16:00',
                 'title_en' => 'Introduction to Entrepreneurship',
                 'title_ar' => 'مقدمة في ريادة الأعمال',
                 'description_en' => 'Learn the basics of starting your own business and entrepreneurial mindset.',
@@ -26,7 +27,8 @@ class PublicSessionSeeder extends Seeder
             ],
             [
                 'date_of_event' => '2025-08-25',
-                'time' => '16:00',
+                'from_time' => '14:00',
+                'to_time' => '16:00',
                 'title_en' => 'Financial Planning for Startups',
                 'title_ar' => 'التخطيط المالي للشركات الناشئة',
                 'description_en' => 'Essential financial planning strategies for new businesses.',
@@ -39,7 +41,8 @@ class PublicSessionSeeder extends Seeder
             ],
             [
                 'date_of_event' => '2025-07-20',
-                'time' => '10:00',
+                'from_time' => '14:00',
+                'to_time' => '16:00',
                 'title_en' => 'Digital Transformation Trends',
                 'title_ar' => 'اتجاهات التحول الرقمي',
                 'description_en' => 'Explore the latest trends in digital transformation and their impact on businesses.',

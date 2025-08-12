@@ -137,9 +137,49 @@
                     </a>
                 </li>
 
+
+                 <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-users nav-icon"></i>
+                        <p>
+                            <?php echo e(__('messages.user_management')); ?>
+
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?php echo e(route('adminComplaints.index')); ?>" class="nav-link">
+                                <i class="fas fa-exclamation-triangle nav-icon text-warning"></i>
+                                <p><?php echo e(__('messages.complaints_management')); ?></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo e(route('admin.contacts.index')); ?>" class="nav-link">
+                                <i class="fas fa-envelope nav-icon text-info"></i>
+                                <p><?php echo e(__('messages.contact_us_management')); ?></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo e(route('admin.service-forms.index')); ?>" class="nav-link">
+                                <i class="fas fa-clipboard-list nav-icon text-primary"></i>
+                                <p><?php echo e(__('messages.service_forms_management')); ?></p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo e(route('admin.suggestions.index')); ?>" class="nav-link">
+                                <i class="fas fa-lightbulb nav-icon text-success"></i>
+                                <p><?php echo e(__('messages.suggestions_management')); ?></p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 
                 <li class="nav-header"><?php echo e(__('messages.legal_tenders')); ?></li>
 
+              
+              
                 <li class="nav-item">
                     <a href="<?php echo e(route('laws.index')); ?>" class="nav-link">
                         <i class="fas fa-gavel nav-icon"></i>
@@ -162,22 +202,11 @@
                 </li>
 
                 
-                <li class="nav-header"><?php echo e(__('messages.business_management')); ?></li>
+                
 
               
 
-                    <?php if(
-                        $user->can('customer-table') ||
-                            $user->can('customer-add') ||
-                            $user->can('customer-edit') ||
-                            $user->can('customer-delete')): ?>
-                        <li class="nav-item">
-                            <a href="<?php echo e(route('users.index')); ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> <?php echo e(__('messages.Customers')); ?> </p>
-                            </a>
-                        </li>
-                    <?php endif; ?>
+                    
 
                    
 

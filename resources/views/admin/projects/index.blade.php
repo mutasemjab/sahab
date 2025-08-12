@@ -63,6 +63,16 @@
                     </tbody>
                 </table>
             </div>
+            
+            <!-- Pagination Links -->
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div class="text-muted">
+                    Showing {{ $projects->firstItem() }} to {{ $projects->lastItem() }} of {{ $projects->total() }} results
+                </div>
+                <div>
+                    {{ $projects->links() }}
+                </div>
+            </div>
         @else
             <div class="text-center py-4">
                 <p class="text-muted">No projects found.</p>

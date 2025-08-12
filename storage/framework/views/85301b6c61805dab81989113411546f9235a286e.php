@@ -65,6 +65,17 @@
                     </tbody>
                 </table>
             </div>
+            
+            <!-- Pagination Links -->
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div class="text-muted">
+                    Showing <?php echo e($projects->firstItem()); ?> to <?php echo e($projects->lastItem()); ?> of <?php echo e($projects->total()); ?> results
+                </div>
+                <div>
+                    <?php echo e($projects->links()); ?>
+
+                </div>
+            </div>
         <?php else: ?>
             <div class="text-center py-4">
                 <p class="text-muted">No projects found.</p>

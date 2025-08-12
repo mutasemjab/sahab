@@ -65,8 +65,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/services/{id}', [ServiceController::class, 'show'])->name('services.show');
     Route::post('/services/form', [ServiceController::class, 'storeForm'])->name('services.form.store');
 
-    Route::get('/tenders', [TenderController::class, 'index'])->name('tenders.index');
-    Route::get('/tenders/{id}', [TenderController::class, 'show'])->name('tenders.show');
+    Route::get('/websiteTenders', [TenderController::class, 'index'])->name('wbsiteTenders.index');
+    Route::get('/websiteTenders/{id}', [TenderController::class, 'show'])->name('wbsiteTenders.show');
     Route::get('/tenders/{id}/download', [TenderController::class, 'downloadDocuments'])->name('tenders.download');
     Route::get('/tenders/{id}/download-files', [TenderController::class, 'downloadFiles'])->name('tenders.download-files');
 
@@ -82,8 +82,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/advertisements/{id}', [MediaCenterController::class, 'showAdvertisement'])->name('advertisements.show');
 
     // News Routes
-    Route::get('/news', [MediaCenterController::class, 'showAllNews'])->name('news.index');
-    Route::get('/news/{id}', [MediaCenterController::class, 'showNews'])->name('news.show');
+    // Route::get('/news', [MediaCenterController::class, 'showAllNews'])->name('news.index');
+    // Route::get('/news/{id}', [MediaCenterController::class, 'showNews'])->name('news.show');
 
     Route::get('/helpus', [HelpUsController::class, 'index'])->name('helpus');
     Route::post('/helpus', [HelpUsController::class, 'store'])->name('helpus.store');
@@ -91,7 +91,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/question', [QuestionController::class, 'index'])->name('question');
     Route::get('/question/search', [QuestionController::class, 'search'])->name('question.search');
 
-    Route::get('/important-links', [ImportantLinkController::class, 'index'])->name('important-links.index');
+    Route::get('/importantLinks', [ImportantLinkController::class, 'index'])->name('importantLinks.index');
     
     Route::get('/site-map', [SiteMapController::class, 'index'])->name('site-map');
     

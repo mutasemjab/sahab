@@ -26,31 +26,31 @@ class MediaCenterController extends Controller
         return view('user.media-center', compact('advertisements', 'news', 'gallery'));
     }
 
-    public function showAllAdvertisements()
-    {
-        $advertisements = Adv::orderBy('date_of_adv', 'desc')
-                                    ->paginate(12);
+    // public function showAllAdvertisements()
+    // {
+    //     $advertisements = Adv::orderBy('date_of_adv', 'desc')
+    //                                 ->paginate(12);
         
-        return view('advertisements.index', compact('advertisements'));
-    }
+    //     return view('advertisements.index', compact('advertisements'));
+    // }
 
-    public function showAllNews()
-    {
-        $news = News::orderBy('date_of_news', 'desc')
-                   ->paginate(12);
+    // public function showAllNews()
+    // {
+    //     $news = News::orderBy('date_of_news', 'desc')
+    //                ->paginate(12);
         
-        return view('news.index', compact('news'));
-    }
+    //     return view('news.index', compact('news'));
+    // }
 
-    public function showAdvertisement($id)
-    {
-        $advertisement = Adv::findOrFail($id);
-        return view('advertisements.show', compact('advertisement'));
-    }
+    // public function showAdvertisement($id)
+    // {
+    //     $advertisement = Adv::findOrFail($id);
+    //     return view('advertisements.show', compact('advertisement'));
+    // }
 
-    public function showNews($id)
-    {
-        $news = News::findOrFail($id);
-        return view('news.show', compact('news'));
-    }
+    // public function showNews($id)
+    // {
+    //     $news = News::findOrFail($id);
+    //     return view('news.show', compact('news'));
+    // }
 }

@@ -17,7 +17,7 @@
 
     </p>
     <?php if($service->pdf): ?>
-      <a href="<?php echo e(asset('storage/' . $service->pdf)); ?>" target="_blank" class="permit-link">📄 <?php echo e(__('front.service_level_agreement')); ?></a>
+      <a href="<?php echo e(asset('assets/admin/uploads/' . $service->pdf)); ?>" target="_blank" class="permit-link">📄 <?php echo e(__('front.service_level_agreement')); ?></a>
     <?php endif; ?>
   </div>
 
@@ -51,12 +51,8 @@
           </div>
         <?php else: ?>
           <ol class="steps">
-            <li><?php echo e(__('front.default_step_1')); ?></li>
-            <li><?php echo e(__('front.default_step_2')); ?></li>
-            <li><?php echo e(__('front.default_step_3')); ?></li>
-            <li><?php echo e(__('front.default_step_4')); ?></li>
-            <li><?php echo e(__('front.default_step_5')); ?></li>
-            <li><?php echo e(__('front.default_step_6')); ?></li>
+              <?php echo nl2br(e($service->serviceDetails->steps)); ?>
+
           </ol>
         <?php endif; ?>
       </div>

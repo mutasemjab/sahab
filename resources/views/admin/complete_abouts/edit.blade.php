@@ -5,7 +5,7 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1>{{ __('messages.edit') }} {{ __('messages.About') }}</h1>
-    <a href="{{ route('abouts.index') }}" class="btn btn-secondary">
+    <a href="{{ route('complete_abouts.index') }}" class="btn btn-secondary">
         <i class="fas fa-arrow-left"></i> Back
     </a>
 </div>

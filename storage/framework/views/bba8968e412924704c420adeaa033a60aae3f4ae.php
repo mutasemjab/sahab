@@ -86,16 +86,29 @@
                                  <?php echo e($session->type == 1 ? __('front.open') : __('front.coming_soon')); ?>
 
                              </span>
-                             <span
-                                 class="session-date"><?php echo e(\Carbon\Carbon::parse($session->date_of_event)->format('d M Y')); ?></span>
+                            <span class="session-date">
+                                <?php echo e(\Carbon\Carbon::parse($session->date_of_event)->locale('ar')->translatedFormat('j F Y')); ?>
+
+                            </span>
+
                          </div>
                          <h3><?php echo e($session->{'title_' . $locale}); ?></h3>
                          <p><?php echo $session->{'description_' . $locale}; ?></p>
                      </div>
                      <div>
-                         <?php if($session->time): ?>
-                             <div class="session-time"><i class="fas fa-clock"></i> <?php echo e($session->time); ?></div>
-                         <?php endif; ?>
+                       <?php if($session->from_time): ?>
+                            <?php
+                                \Carbon\Carbon::setLocale('ar');
+                                $fromTime = \Carbon\Carbon::parse($session->from_time);
+                                $toTime = \Carbon\Carbon::parse($session->to_time);
+                            ?>
+                            <div class="session-time">
+                                <i class="fas fa-clock"></i> 
+                                <?php echo e($fromTime->format('g:i')); ?> <?php echo e($fromTime->format('A') == 'AM' ? 'صباحا' : 'مساء'); ?> - 
+                                <?php echo e($toTime->format('g:i')); ?> <?php echo e($toTime->format('A') == 'AM' ? 'صباحا' : 'مساء'); ?>
+
+                            </div>
+                        <?php endif; ?>
                         <a href="#"> <button class="session-btn <?php echo e($session->type != 1 ? 'disabled' : ''); ?>"
                              <?php echo e($session->type != 1 ? 'disabled' : ''); ?>>
                              <?php echo e($session->type == 1 ? __('front.join_session') : __('front.learn_more')); ?>
@@ -161,7 +174,7 @@
                  <div class="news-card">
                      <img src="<?php echo e(asset('assets/admin/uploads/' . $adv->photo)); ?>" alt="<?php echo e($adv->{'title_' . $locale}); ?>">
                      <div class="news-content">
-                         <span class="news-date"><?php echo e(\Carbon\Carbon::parse($adv->date_of_adv)->format('d M Y')); ?></span>
+                         <span class="news-date"> <?php echo e(\Carbon\Carbon::parse($session->date_of_adv)->locale('ar')->translatedFormat('j F Y')); ?></span>
                          <h3><?php echo e($adv->{'title_' . $locale}); ?></h3>
                          <p><?php echo Str::limit($adv->{'description_' . $locale}, 60); ?>...</p>
                          <a href="#" class="news-link"><i class="fas fa-arrow-left"></i>

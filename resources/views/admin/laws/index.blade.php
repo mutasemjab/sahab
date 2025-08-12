@@ -34,7 +34,7 @@
                             <td>{{ Str::limit(strip_tags($law->description_en), 30) }}</td>
                             <td>
                                 @if($law->pdf)
-                                    <a href="{{ asset($law->pdf) }}" target="_blank" class="btn btn-sm btn-info">
+                                    <a href="{{ asset('assets/admin/uploads/'.$law->pdf) }}" target="_blank" class="btn btn-sm btn-info">
                                         <i class="fas fa-file-pdf"></i> View PDF
                                     </a>
                                 @endif

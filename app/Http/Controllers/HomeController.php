@@ -19,9 +19,9 @@ class HomeController extends Controller
        $about = About::first();
        $banners = Banner::get();
        $services = Service::get();
-       $publicSessions = PublicSession::get();
+       $publicSessions = PublicSession::orderBy('date_of_event','asc')->get();
        $projects = Projects::get();
-       $advs = Adv::get();
+       $advs = Adv::orderBy('date_of_adv','asc')->get();
        $locale = app()->getLocale();
 
         $events = Event::get()->map(function($event) use ($locale) {

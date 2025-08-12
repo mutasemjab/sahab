@@ -38,7 +38,20 @@
                                     {{ $session->type == 1 ? __('messages.open') : __('messages.soon') }}
                                 </span>
                             </td>
-                            <td>{{ $session->time ?? 'N/A' }}</td>
+                            <td>  
+                                
+                            @php
+                                \Carbon\Carbon::setLocale('ar');
+                                $fromTime = \Carbon\Carbon::parse($session->from_time);
+                                $toTime = \Carbon\Carbon::parse($session->to_time);
+                            @endphp
+                            <div class="session-time">
+                                <i class="fas fa-clock"></i> 
+                                {{ $fromTime->format('g:i') }} {{ $fromTime->format('A') == 'AM' ? 'صباحا' : 'مساء' }} - 
+                                {{ $toTime->format('g:i') }} {{ $toTime->format('A') == 'AM' ? 'صباحا' : 'مساء' }}
+                            </div>
+                            
+                            </td>
                             <td>
                                 <a href="{{ route('public-sessions.edit', $session->id) }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> {{ __('messages.edit') }}

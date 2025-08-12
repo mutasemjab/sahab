@@ -3,7 +3,7 @@
 <?php $__env->startSection('content'); ?>
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1><?php echo e(__('messages.edit')); ?> <?php echo e(__('messages.About')); ?></h1>
-    <a href="<?php echo e(route('abouts.index')); ?>" class="btn btn-secondary">
+    <a href="<?php echo e(route('complete_abouts.index')); ?>" class="btn btn-secondary">
         <i class="fas fa-arrow-left"></i> Back
     </a>
 </div>

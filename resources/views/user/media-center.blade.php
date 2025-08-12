@@ -102,9 +102,9 @@
     <div class="mutasem-gallery-grid">
       @foreach(array_slice($gallery->video_data, 0, 6) as $video)
       <!-- بطاقة فيديو -->
-      <div class="mutasem-video-card">
+      <div class="mutasem-video-card" data-video-url="{{ $video['video_url'] }}" style="cursor: pointer;">
         <div class="mutasem-video-thumbnail">
-          <img src="{{ $video['thumbnail'] }}" alt="{{ $video['title'] }}">
+          <img src="{{ $video['thumbnail'] ?? 'https://img.youtube.com/vi/' . $video['youtube_id'] . '/maxresdefault.jpg' }}" alt="{{ $video['title'] }}">
           <span class="mutasem-play-icon">▶</span>
         </div>
         <div class="mutasem-video-info">
@@ -167,5 +167,146 @@
     </div>
   </div>
 </section>
+
+<!-- YouTube Video Modal -->
+<div id="videoModal" class="video-modal">
+  <div class="video-modal-content">
+    <span class="video-modal-close">&times;</span>
+    <div class="video-container">
+      <iframe id="youtubeFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Modal Styles */
+.video-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.video-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+  transition: color 0.3s;
+}
+
+.video-modal-close:hover {
+  color: #ff4444;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Video card hover effect */
+.mutasem-video-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.mutasem-video-card:hover .mutasem-play-icon {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const videoCards = document.querySelectorAll('.mutasem-video-card[data-video-url]');
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('youtubeFrame');
+  const closeBtn = document.querySelector('.video-modal-close');
+
+  // Function to extract YouTube video ID from URL
+  function extractYouTubeId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  }
+
+  // Open modal when video card is clicked
+  videoCards.forEach(card => {
+    card.addEventListener('click', function() {
+      const videoUrl = this.getAttribute('data-video-url');
+      const youtubeId = extractYouTubeId(videoUrl);
+      
+      if (youtubeId) {
+        const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+        iframe.src = embedUrl;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+    });
+  });
+
+  // Close modal when close button is clicked
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    iframe.src = ''; // Stop video
+    document.body.style.overflow = 'auto'; // Restore scrolling
+  });
+
+  // Close modal when clicking outside the video
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      iframe.src = ''; // Stop video
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      modal.style.display = 'none';
+      iframe.src = ''; // Stop video
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+  });
+});
+</script>
 
 @endsection

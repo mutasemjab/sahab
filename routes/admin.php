@@ -2,55 +2,31 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdvController;
-use App\Http\Controllers\Admin\BrandController;
-use App\Http\Controllers\Admin\BusinessTypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\UnitController;
-use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\DeliveryController;
-use App\Http\Controllers\Admin\NotificationController;
-use App\Http\Controllers\Admin\CountryController;
-use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\ComplaintController;
 use App\Http\Controllers\Admin\CompleteAboutController;
-use App\Http\Controllers\Admin\WholeSaleController;
-use App\Http\Controllers\Admin\ShopController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\OfferController;
-use App\Http\Controllers\Admin\CouponController;
-use App\Http\Controllers\Admin\CrvController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ImportantLinkController;
 use App\Http\Controllers\Admin\LawController;
 use App\Http\Controllers\Admin\MunicipalCouncilController;
 use App\Http\Controllers\Admin\NewsController;
-use App\Http\Controllers\Admin\WarehouseController;
-use App\Http\Controllers\Admin\NoteVoucherTypeController;
-use App\Http\Controllers\Admin\NoteVoucherController;
 use App\Http\Controllers\Admin\OurPartController;
-use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\PublicSessionController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\TaxController;
+use App\Http\Controllers\Admin\ServiceFormsController;
+use App\Http\Controllers\Admin\SuggestionsController;
 use App\Http\Controllers\Admin\TenderController;
 use App\Http\Controllers\Admin\TenderDetailController;
 use App\Http\Controllers\Admin\TopicDiscussionController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Reports\AllProductReportController;
-use App\Http\Controllers\Reports\InventoryReportController;
-use App\Http\Controllers\Reports\OrderReportController;
-use App\Http\Controllers\Reports\ProductReportController;
-use App\Http\Controllers\Reports\TaxReportController;
-use App\Http\Controllers\Reports\UserReportController;
-use App\Models\CompleteAbout;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Spatie\Permission\Models\Permission;
 /*
@@ -91,7 +67,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             return response()->json(Permission::where('guard_name', $guard_name)->get());
         });
 
+        Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts.index');
+        Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('admin.contacts.destroy');
 
+        Route::prefix('admin')->name('admin.')->group(function () {
+            Route::get('/service-forms', [ServiceFormsController::class, 'index'])->name('service-forms.index');
+            Route::delete('/service-forms/{serviceForm}', [ServiceFormsController::class, 'destroy'])->name('service-forms.destroy');
+        });
+
+        Route::prefix('admin')->name('admin.')->group(function () {
+            Route::get('/suggestions', [SuggestionsController::class, 'index'])->name('suggestions.index');
+            Route::delete('/suggestions/{suggestion}', [SuggestionsController::class, 'destroy'])->name('suggestions.destroy');
+        });
 
         Route::resource('users', UserController::class);
         Route::resource('banners', BannerController::class);
@@ -114,6 +101,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('topic-discussions', TopicDiscussionController::class);
         Route::resource('galleries', GalleryController::class);
         Route::resource('important-links', ImportantLinkController::class);
+        Route::resource('adminComplaints', ComplaintController::class);
+
+        Route::get('services/{serviceId}/details', [ServiceController::class, 'showDetails'])->name('services.details');
+        Route::get('services/{serviceId}/details/create', [ServiceController::class, 'createDetails'])->name('services.details.create');
+        Route::post('services/{serviceId}/details', [ServiceController::class, 'storeDetails'])->name('services.details.store');
+        Route::get('services/{serviceId}/details/{detailId}/edit', [ServiceController::class, 'editDetails'])->name('services.details.edit');
+        Route::put('services/{serviceId}/details/{detailId}', [ServiceController::class, 'updateDetails'])->name('services.details.update');
+        Route::delete('services/{serviceId}/details/{detailId}', [ServiceController::class, 'destroyDetails'])->name('services.details.destroy');
         
     });
 });

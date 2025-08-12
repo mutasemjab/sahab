@@ -34,7 +34,7 @@
                                     <span class="badge bg-primary">{{ count($photos) }} Photos</span>
                                     <div class="mt-1">
                                         @foreach(array_slice($photos, 0, 3) as $photo)
-                                            <img src="{{ asset($photo) }}" alt="Gallery" style="width: 30px; height: 30px; object-fit: cover; margin-right: 5px;">
+                                            <img src="{{ asset('assets/admin/uploads/'.$photo) }}" alt="Gallery" style="width: 30px; height: 30px; object-fit: cover; margin-right: 5px;">
                                         @endforeach
                                         @if(count($photos) > 3)
                                             <span class="text-muted">+{{ count($photos) - 3 }} more</span>

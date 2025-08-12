@@ -137,9 +137,48 @@
                     </a>
                 </li>
 
+
+                 <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-users nav-icon"></i>
+                        <p>
+                            {{ __('messages.user_management') }}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('adminComplaints.index') }}" class="nav-link">
+                                <i class="fas fa-exclamation-triangle nav-icon text-warning"></i>
+                                <p>{{ __('messages.complaints_management') }}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.contacts.index') }}" class="nav-link">
+                                <i class="fas fa-envelope nav-icon text-info"></i>
+                                <p>{{ __('messages.contact_us_management') }}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.service-forms.index') }}" class="nav-link">
+                                <i class="fas fa-clipboard-list nav-icon text-primary"></i>
+                                <p>{{ __('messages.service_forms_management') }}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.suggestions.index') }}" class="nav-link">
+                                <i class="fas fa-lightbulb nav-icon text-success"></i>
+                                <p>{{ __('messages.suggestions_management') }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 {{-- Legal & Tenders Section --}}
                 <li class="nav-header">{{ __('messages.legal_tenders') }}</li>
 
+              
+              
                 <li class="nav-item">
                     <a href="{{ route('laws.index') }}" class="nav-link">
                         <i class="fas fa-gavel nav-icon"></i>
@@ -162,11 +201,11 @@
                 </li>
 
                 {{-- Existing Business Section --}}
-                <li class="nav-header">{{ __('messages.business_management') }}</li>
+                {{-- <li class="nav-header">{{ __('messages.business_management') }}</li> --}}
 
               
 
-                    @if (
+                    {{-- @if (
                         $user->can('customer-table') ||
                             $user->can('customer-add') ||
                             $user->can('customer-edit') ||
@@ -177,7 +216,7 @@
                                 <p> {{ __('messages.Customers') }} </p>
                             </a>
                         </li>
-                    @endif
+                    @endif --}}
 
                    
 

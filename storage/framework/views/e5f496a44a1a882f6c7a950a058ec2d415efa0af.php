@@ -1,17 +1,20 @@
 <?php $__env->startSection('title'); ?>
-الرئيسية
+<?php echo e(__('messages.Home')); ?>
+
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader'); ?>
-الرئيسية
+<?php echo e(__('messages.Home')); ?>
+
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheaderlink'); ?>
-<a href="<?php echo e(route('admin.dashboard')); ?>"> الرئيسية </a>
+<a href="<?php echo e(route('admin.dashboard')); ?>"> <?php echo e(__('messages.Home')); ?> </a>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheaderactive'); ?>
-عرض
+<?php echo e(__('messages.Show')); ?>
+
 <?php $__env->stopSection(); ?>
 
 

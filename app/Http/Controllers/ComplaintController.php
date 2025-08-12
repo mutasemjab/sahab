@@ -113,18 +113,18 @@ class ComplaintController extends Controller
         $photos = [];
         if ($request->hasFile('photo')) {
             foreach ($request->file('photo') as $file) {
-                $path = $file->store('complaints/photos', 'public');
-                $photos[] = $path;
+                $photos[] = uploadImage('assets/admin/uploads', $file);
+            }
+        }
+      
+      
+        $anotherPhotos = [];
+        if ($request->hasFile('anotherPhoto')) {
+            foreach ($request->file('anotherPhoto') as $file) {
+                $anotherPhotos[] = uploadImage('assets/admin/uploads', $file);
             }
         }
 
-        $anotherPhotos = [];
-        if ($request->hasFile('another_photo')) {
-            foreach ($request->file('another_photo') as $file) {
-                $path = $file->store('complaints/another_photos', 'public');
-                $anotherPhotos[] = $path;
-            }
-        }
 
         Complaint::create([
             'number' => $complaintNumber,

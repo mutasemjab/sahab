@@ -84,16 +84,27 @@
                              <span class="session-status {{ $session->type == 1 ? 'open' : 'coming' }}">
                                  {{ $session->type == 1 ? __('front.open') : __('front.coming_soon') }}
                              </span>
-                             <span
-                                 class="session-date">{{ \Carbon\Carbon::parse($session->date_of_event)->format('d M Y') }}</span>
+                            <span class="session-date">
+                                {{ \Carbon\Carbon::parse($session->date_of_event)->locale('ar')->translatedFormat('j F Y') }}
+                            </span>
+
                          </div>
                          <h3>{{ $session->{'title_' . $locale} }}</h3>
                          <p>{!! $session->{'description_' . $locale} !!}</p>
                      </div>
                      <div>
-                         @if ($session->time)
-                             <div class="session-time"><i class="fas fa-clock"></i> {{ $session->time }}</div>
-                         @endif
+                       @if ($session->from_time)
+                            @php
+                                \Carbon\Carbon::setLocale('ar');
+                                $fromTime = \Carbon\Carbon::parse($session->from_time);
+                                $toTime = \Carbon\Carbon::parse($session->to_time);
+                            @endphp
+                            <div class="session-time">
+                                <i class="fas fa-clock"></i> 
+                                {{ $fromTime->format('g:i') }} {{ $fromTime->format('A') == 'AM' ? 'صباحا' : 'مساء' }} - 
+                                {{ $toTime->format('g:i') }} {{ $toTime->format('A') == 'AM' ? 'صباحا' : 'مساء' }}
+                            </div>
+                        @endif
                         <a href="#"> <button class="session-btn {{ $session->type != 1 ? 'disabled' : '' }}"
                              {{ $session->type != 1 ? 'disabled' : '' }}>
                              {{ $session->type == 1 ? __('front.join_session') : __('front.learn_more') }}
@@ -154,7 +165,7 @@
                  <div class="news-card">
                      <img src="{{ asset('assets/admin/uploads/' . $adv->photo) }}" alt="{{ $adv->{'title_' . $locale} }}">
                      <div class="news-content">
-                         <span class="news-date">{{ \Carbon\Carbon::parse($adv->date_of_adv)->format('d M Y') }}</span>
+                         <span class="news-date"> {{ \Carbon\Carbon::parse($session->date_of_adv)->locale('ar')->translatedFormat('j F Y') }}</span>
                          <h3>{{ $adv->{'title_' . $locale} }}</h3>
                          <p>{!! Str::limit($adv->{'description_' . $locale}, 60) !!}...</p>
                          <a href="#" class="news-link"><i class="fas fa-arrow-left"></i>

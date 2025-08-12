@@ -28,6 +28,13 @@ class Gallery extends Model
     }
 
     // Get video data with URLs
+   private function extractYouTubeId($url)
+    {
+        preg_match('/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/', $url, $matches);
+        return (isset($matches[2]) && strlen($matches[2]) === 11) ? $matches[2] : null;
+    }
+
+    // Get video data with URLs and thumbnails
     public function getVideoDataAttribute()
     {
         if (!$this->video) {
@@ -35,11 +42,14 @@ class Gallery extends Model
         }
         
         return collect($this->video)->map(function ($video) {
+            $youtubeId = $this->extractYouTubeId($video['video_url'] ?? '');
+            
             return [
                 'title' => $video['title'] ?? '',
                 'date' => $video['date'] ?? '',
-                'thumbnail' => asset('assets/admin/uploads/' . ($video['thumbnail'] ?? '')),
-                'video_url' => asset('assets/admin/uploads/' . ($video['video_url'] ?? ''))
+                'video_url' => $video['video_url'] ?? '',
+                'youtube_id' => $youtubeId,
+                'thumbnail' => $video['thumbnail'] ?? ($youtubeId ? "https://img.youtube.com/vi/{$youtubeId}/maxresdefault.jpg" : null)
             ];
         })->toArray();
     }

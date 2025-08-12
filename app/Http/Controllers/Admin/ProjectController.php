@@ -12,7 +12,7 @@ class ProjectController extends Controller
 {
      public function index()
     {
-        $projects = DB::table('projects')->orderBy('created_at', 'desc')->get();
+        $projects = DB::table('projects')->orderBy('created_at', 'desc')->paginate(PAGINATION_COUNT);
         return view('admin.projects.index', compact('projects'));
     }
 

@@ -116,4 +116,126 @@ class ServiceController extends Controller
         }
         return redirect()->route('services.index')->with('success', __('messages.service_deleted'));
     }
+
+    // New methods for service details
+    public function createDetails($serviceId)
+    {
+        $service = DB::table('services')->where('id', $serviceId)->first();
+        if (!$service) {
+            return redirect()->route('services.index')->with('error', __('messages.service_not_found'));
+        }
+        
+        return view('admin.services.create-details', compact('service'));
+    }
+
+    public function storeDetails(Request $request, $serviceId)
+    {
+        $request->validate([
+            'video' => 'required|string|max:255',
+            'description_en' => 'required|string',
+            'description_ar' => 'required|string',
+            'steps' => 'required|string',
+            'condition' => 'required|string',
+            'required_file' => 'required|string',
+        ]);
+
+        $service = DB::table('services')->where('id', $serviceId)->first();
+        if (!$service) {
+            return redirect()->route('services.index')->with('error', __('messages.service_not_found'));
+        }
+
+        DB::table('service_details')->insert([
+            'service_id' => $serviceId,
+            'video' => $request->video,
+            'description_en' => $request->description_en,
+            'description_ar' => $request->description_ar,
+            'steps' => $request->steps,
+            'condition' => $request->condition,
+            'required_file' => $request->required_file,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->route('services.index')->with('success', __('messages.service_details_created'));
+    }
+
+    public function showDetails($serviceId)
+    {
+        $service = DB::table('services')->where('id', $serviceId)->first();
+        $serviceDetails = DB::table('service_details')->where('service_id', $serviceId)->get();
+        
+        if (!$service) {
+            return redirect()->route('services.index')->with('error', __('messages.service_not_found'));
+        }
+
+        return view('admin.services.details', compact('service', 'serviceDetails'));
+    }
+
+    public function editDetails($serviceId, $detailId)
+    {
+        $service = DB::table('services')->where('id', $serviceId)->first();
+        $serviceDetail = DB::table('service_details')
+            ->where('id', $detailId)
+            ->where('service_id', $serviceId)
+            ->first();
+
+        if (!$service || !$serviceDetail) {
+            return redirect()->route('services.index')->with('error', __('messages.service_detail_not_found'));
+        }
+
+        return view('admin.services.edit-details', compact('service', 'serviceDetail'));
+    }
+
+    public function updateDetails(Request $request, $serviceId, $detailId)
+    {
+        $request->validate([
+            'video' => 'required|string|max:255',
+            'description_en' => 'required|string',
+            'description_ar' => 'required|string',
+            'steps' => 'required|string',
+            'condition' => 'required|string',
+            'required_file' => 'required|string',
+        ]);
+
+        $serviceDetail = DB::table('service_details')
+            ->where('id', $detailId)
+            ->where('service_id', $serviceId)
+            ->first();
+
+        if (!$serviceDetail) {
+            return redirect()->route('services.index')->with('error', __('messages.service_detail_not_found'));
+        }
+
+        DB::table('service_details')
+            ->where('id', $detailId)
+            ->where('service_id', $serviceId)
+            ->update([
+                'video' => $request->video,
+                'description_en' => $request->description_en,
+                'description_ar' => $request->description_ar,
+                'steps' => $request->steps,
+                'condition' => $request->condition,
+                'required_file' => $request->required_file,
+                'updated_at' => now(),
+            ]);
+
+        return redirect()->route('services.details', $serviceId)->with('success', __('messages.service_details_updated'));
+    }
+
+    public function destroyDetails($serviceId, $detailId)
+    {
+        $serviceDetail = DB::table('service_details')
+            ->where('id', $detailId)
+            ->where('service_id', $serviceId)
+            ->first();
+
+        if ($serviceDetail) {
+            DB::table('service_details')
+                ->where('id', $detailId)
+                ->where('service_id', $serviceId)
+                ->delete();
+        }
+
+        return redirect()->route('services.details', $serviceId)->with('success', __('messages.service_details_deleted'));
+    }
 }

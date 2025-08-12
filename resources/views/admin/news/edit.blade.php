@@ -77,7 +77,7 @@
                 <label for="photo" class="form-label">{{ __('messages.photo') }}</label>
                 @if($news->photo)
                     <div class="mb-2">
-                        <img src="{{ asset($news->photo) }}" alt="Current Photo" class="img-thumbnail" style="max-height: 200px;">
+                        <img src="{{ asset("assets/admin/uploads/" . $news->photo) }}" alt="Current Photo" class="img-thumbnail" style="max-height: 200px;">
                     </div>
                 @endif
                 <input type="file" class="form-control @error('photo') is-invalid @enderror" 

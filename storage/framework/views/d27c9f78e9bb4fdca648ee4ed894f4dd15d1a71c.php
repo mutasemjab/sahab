@@ -12,7 +12,7 @@
     <div class="footer-col">
       <h3><?php echo e(__('front.quick_links')); ?></h3>
       <ul>
-        <li><a href="<?php echo e(route('important-links.index')); ?>"><?php echo e(__('front.important_links')); ?></a></li>
+        <li><a href="<?php echo e(route('importantLinks.index')); ?>"><?php echo e(__('front.important_links')); ?></a></li>
         <li><a href="<?php echo e(route('questions')); ?>"><?php echo e(__('front.faq')); ?></a></li>
       </ul>
     </div>

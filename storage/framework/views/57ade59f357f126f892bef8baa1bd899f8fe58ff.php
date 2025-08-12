@@ -33,7 +33,7 @@
                             <td><?php echo e(Str::limit(strip_tags($law->description_en), 30)); ?></td>
                             <td>
                                 <?php if($law->pdf): ?>
-                                    <a href="<?php echo e(asset($law->pdf)); ?>" target="_blank" class="btn btn-sm btn-info">
+                                    <a href="<?php echo e(asset('assets/admin/uploads/'.$law->pdf)); ?>" target="_blank" class="btn btn-sm btn-info">
                                         <i class="fas fa-file-pdf"></i> View PDF
                                     </a>
                                 <?php endif; ?>

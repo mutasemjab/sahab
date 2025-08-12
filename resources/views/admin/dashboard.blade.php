@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 @section('title')
-الرئيسية
+{{__('messages.Home')}}
 @endsection
 
 @section('contentheader')
-الرئيسية
+{{__('messages.Home')}}
 @endsection
 
 @section('contentheaderlink')
-<a href="{{ route('admin.dashboard') }}"> الرئيسية </a>
+<a href="{{ route('admin.dashboard') }}"> {{__('messages.Home')}} </a>
 @endsection
 
 @section('contentheaderactive')
-عرض
+{{__('messages.Show')}}
 @endsection
 
 

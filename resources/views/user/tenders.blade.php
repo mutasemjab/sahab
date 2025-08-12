@@ -5,7 +5,7 @@
   <div class="breadcrumb-container">
     <a href="{{ route('home') }}">{{ __('front.home') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
-    <a href="{{ route('tenders.index') }}" class="active">{{ __('front.tenders_bids') }}</a>
+    <a href="{{ route('wbsiteTenders.index') }}" class="active">{{ __('front.tenders_bids') }}</a>
   </div>
 </div>
 
@@ -55,7 +55,7 @@
         </div>
         <div class="tender-item">
           <span class="tender-label">{{ __('front.publish_date') }}</span>
-          <span class="tender-value">{{ Carbon\Carbon::parse($tender->date_publish)->format('d M Y') }}</span>
+          <span class="tender-value">{{ Carbon\Carbon::parse($tender->date_publish)->locale('ar')->translatedFormat('j F Y') }}</span>
         </div>
         <div class="tender-item">
           <span class="tender-label">{{ __('front.closing_date') }}</span>
@@ -63,7 +63,7 @@
             @if(Carbon\Carbon::parse($tender->date_close)->isPast()) expired
             @elseif(Carbon\Carbon::parse($tender->date_close)->diffInDays() <= 7) urgent
             @endif">
-            {{ Carbon\Carbon::parse($tender->date_close)->format('d M Y') }}
+            {{ Carbon\Carbon::parse($tender->date_close)->locale('ar')->translatedFormat('j F Y')}}
             @if(Carbon\Carbon::parse($tender->date_close)->isPast())
               <small>({{ __('front.expired') }})</small>
             @elseif(Carbon\Carbon::parse($tender->date_close)->diffInDays() <= 7)
@@ -72,7 +72,7 @@
           </span>
         </div>
         <div class="tender-item">
-          <a href="{{ route('tenders.show', $tender->id) }}" class="tender-btn">{{ __('front.details') }}</a>
+          <a href="{{ route('wbsiteTenders.show', $tender->id) }}" class="tender-btn">{{ __('front.details') }}</a>
         </div>
       </div>
 

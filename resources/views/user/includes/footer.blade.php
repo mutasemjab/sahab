@@ -12,7 +12,7 @@
     <div class="footer-col">
       <h3>{{ __('front.quick_links') }}</h3>
       <ul>
-        <li><a href="{{ route('important-links.index') }}">{{ __('front.important_links') }}</a></li>
+        <li><a href="{{ route('importantLinks.index') }}">{{ __('front.important_links') }}</a></li>
         <li><a href="{{ route('questions') }}">{{ __('front.faq') }}</a></li>
       </ul>
     </div>

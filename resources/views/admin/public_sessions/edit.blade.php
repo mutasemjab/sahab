@@ -16,7 +16,7 @@
             @method('PUT')
             
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="mb-3">
                         <label for="date_of_event" class="form-label">{{ __('messages.date_of_event') }}</label>
                         <input type="date" class="form-control @error('date_of_event') is-invalid @enderror" 
@@ -27,12 +27,22 @@
                     </div>
                 </div>
                 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="mb-3">
                         <label for="time" class="form-label">{{ __('messages.time') }}</label>
-                        <input type="time" class="form-control @error('time') is-invalid @enderror" 
-                               id="time" name="time" value="{{ old('time', $publicSession->time) }}">
-                        @error('time')
+                        <input type="time" class="form-control @error('from_time') is-invalid @enderror" 
+                               id="from_time" name="from_time" value="{{ old('from_time', $publicSession->from_time) }}">
+                        @error('from_time')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="time" class="form-label">{{ __('messages.to_time') }}</label>
+                        <input type="time" class="form-control @error('to_time') is-invalid @enderror" 
+                               id="to_time" name="to_time" value="{{ old('to_time', $publicSession->to_time) }}">
+                        @error('to_time')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
@@ -91,7 +101,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="type" class="form-label">{{ __('messages.type') }}</label>
-                        <select class="form-select @error('type') is-invalid @enderror" id="type" name="type" required>
+                        <select class="form-control @error('type') is-invalid @enderror" id="type" name="type" required>
                             <option value="">Select Type</option>
                             <option value="1" {{ old('type', $publicSession->type) == '1' ? 'selected' : '' }}>{{ __('messages.open') }}</option>
                             <option value="2" {{ old('type', $publicSession->type) == '2' ? 'selected' : '' }}>{{ __('messages.soon') }}</option>

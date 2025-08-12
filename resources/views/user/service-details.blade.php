@@ -18,7 +18,7 @@
       {{ $locale == 'ar' ? $service->description_ar : $service->description_en }}
     </p>
     @if($service->pdf)
-      <a href="{{ asset('storage/' . $service->pdf) }}" target="_blank" class="permit-link">📄 {{ __('front.service_level_agreement') }}</a>
+      <a href="{{ asset('assets/admin/uploads/' . $service->pdf) }}" target="_blank" class="permit-link">📄 {{ __('front.service_level_agreement') }}</a>
     @endif
   </div>
 
@@ -51,12 +51,7 @@
           </div>
         @else
           <ol class="steps">
-            <li>{{ __('front.default_step_1') }}</li>
-            <li>{{ __('front.default_step_2') }}</li>
-            <li>{{ __('front.default_step_3') }}</li>
-            <li>{{ __('front.default_step_4') }}</li>
-            <li>{{ __('front.default_step_5') }}</li>
-            <li>{{ __('front.default_step_6') }}</li>
+              {!! nl2br(e($service->serviceDetails->steps)) !!}
           </ol>
         @endif
       </div>

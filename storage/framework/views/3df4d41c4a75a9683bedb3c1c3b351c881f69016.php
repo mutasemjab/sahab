@@ -8,6 +8,13 @@
   </div>
 </div>
 
+<section class="municipal-services">
+  <h2 class="section-title">اتصل بنا</h2>
+  <p class="section-desc">
+    نحن هنا للمساعدة والإجابة على أي اسئلة قد تكون لديك
+  </p>
+</section>
+
 <section class="contact-section">
   <div class="container contact-grid">
     <div class="contact-form">

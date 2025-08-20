@@ -21,36 +21,54 @@
       </p>
     </div>
 
-    <div class="mutasem-sessionview-details">
-      @if($session->time)
-        <div class="mutasem-sessionview-info-box">
-          <strong>{{ __('front.time') }}</strong>
-          <div>{{ $session->time }}</div>
-        </div>
-      @endif
-      
-      <div class="mutasem-sessionview-info-box">
-        <strong>{{ __('front.date') }}</strong>
-        <div>{{ Carbon\Carbon::parse($session->date_of_event)->format('l, d F Y') }}</div>
-      </div>
-      
-      <div class="mutasem-sessionview-info-box">
-        <strong>{{ __('front.platform') }}</strong>
-        <div>{{ __('front.zoom_platform') }}</div>
-      </div>
-      
-      <div class="mutasem-sessionview-info-box">
-        <strong>{{ __('front.location') }}</strong>
-        <div>{{ __('front.online_via_zoom') }}</div>
-      </div>
+<div class="mutasem-sessionview-details">
 
-      <div class="mutasem-sessionview-info-box">
-        <strong>{{ __('front.status') }}</strong>
-        <div class="session-status {{ $session->type == 1 ? 'open' : 'soon' }}">
-          {{ $session->type == 1 ? __('front.open_for_registration') : __('front.coming_soon') }}
-        </div>
-      </div>
+  @if($session->time)
+    <div class="mutasem-sessionview-info-box">
+      <strong>
+        <i class="far fa-clock" style="color:#1b7b63; margin-left:6px;"></i>
+        {{ __('front.time') }}
+      </strong>
+      <div>{{ $session->time }}</div>
     </div>
+  @endif
+
+  <div class="mutasem-sessionview-info-box">
+    <strong>
+      <i class="far fa-calendar-alt" style="color:#1b7b63; margin-left:6px;"></i>
+      {{ __('front.date') }}
+    </strong>
+    <div>{{ Carbon\Carbon::parse($session->date_of_event)->format('l, d F Y') }}</div>
+  </div>
+
+  <div class="mutasem-sessionview-info-box">
+    <strong>
+      <i class="fas fa-map-marker-alt" style="color:#1b7b63; margin-left:6px;"></i>
+      {{ __('front.location') }}
+    </strong>
+    <div>{{ __('front.online_via_zoom') }}</div>
+  </div>
+
+  <div class="mutasem-sessionview-info-box">
+    <strong>
+      <i class="fas fa-video" style="color:#1b7b63; margin-left:6px;"></i>
+      {{ __('front.platform') }}
+    </strong>
+    <div>{{ __('front.zoom_platform') }}</div>
+  </div>
+
+  <div class="mutasem-sessionview-info-box">
+    <strong>
+      <i class="fas fa-info-circle" style="color:#1b7b63; margin-left:6px;"></i>
+      {{ __('front.status') }}
+    </strong>
+    <div class="session-status {{ $session->type == 1 ? 'open' : 'soon' }}">
+      {{ $session->type == 1 ? __('front.open_for_registration') : __('front.coming_soon') }}
+    </div>
+  </div>
+
+</div>
+
 
     <div class="mutasem-sessionview-content">
       @if($session->video)
@@ -88,13 +106,6 @@
     </div>
 
 
-
-    <div class="session-navigation">
-      <a href="{{ route('community.index') }}" class="back-btn">
-        <i class="fas fa-arrow-left"></i>
-        {{ __('front.back_to_community') }}
-      </a>
-    </div>
   </div>
 </section>
 

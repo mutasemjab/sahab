@@ -136,6 +136,13 @@
                         <p> {{ __('messages.MunicipalCouncils') }} </p>
                     </a>
                 </li>
+               
+                <li class="nav-item">
+                    <a href="{{ route('new-listen-sessions.index') }}" class="nav-link">
+                        <i class="fas fa-building nav-icon"></i>
+                        <p> {{ __('messages.listen_sessions') }} </p>
+                    </a>
+                </li>
 
 
                  <li class="nav-item has-treeview">

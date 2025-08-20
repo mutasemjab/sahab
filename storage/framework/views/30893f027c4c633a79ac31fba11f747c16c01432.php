@@ -32,45 +32,47 @@
 </section>
 
 <section class="mutasem-propose-guidelines">
-  <div class="mutasem-container mutasem-guideline-grid">
-    
-    <!-- Fill Form -->
-    <div class="mutasem-guideline-box">
-      <div class="mutasem-guideline-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-          <path d="M12 20h9" />
-          <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
-        </svg>
-      </div>
-      <h4><?php echo e(__('front.fill_form')); ?></h4>
-      <p><?php echo e(__('front.provide_detailed_info_complaint')); ?></p>
+        <h2 class="section-title">ارشادات التقديم</h2>
+<div class="mutasem-container mutasem-guideline-grid">
+
+  <!-- Fill Form -->
+  <div class="mutasem-guideline-box" style="text-align:center;">
+    <div class="mutasem-guideline-icon" style="background-color:#076046; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+      </svg>
     </div>
-    
-    <!-- Submit -->
-    <div class="mutasem-guideline-box">
-      <div class="mutasem-guideline-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-          <path d="M22 2 11 13" />
-          <path d="m22 2-7 20-4-9-9-4 20-7z" />
-        </svg>
-      </div>
-      <h4><?php echo e(__('front.submit')); ?></h4>
-      <p><?php echo e(__('front.review_by_team_complaint')); ?></p>
-    </div>
-    
-    <!-- Follow Up -->
-    <div class="mutasem-guideline-box">
-      <div class="mutasem-guideline-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 6v6l4 2" />
-        </svg>
-      </div>
-      <h4><?php echo e(__('front.follow_up')); ?></h4>
-      <p><?php echo e(__('front.track_submission_status')); ?></p>
-    </div>
-    
+    <h4><?php echo e(__('front.fill_form')); ?></h4>
+    <p><?php echo e(__('front.provide_detailed_info_complaint')); ?></p>
   </div>
+
+  <!-- Submit -->
+  <div class="mutasem-guideline-box" style="text-align:center;">
+    <div class="mutasem-guideline-icon" style="background-color:#076046; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+        <path d="M22 2 11 13" />
+        <path d="m22 2-7 20-4-9-9-4 20-7z" />
+      </svg>
+    </div>
+    <h4>قدم</h4>
+    <p><?php echo e(__('front.review_by_team_complaint')); ?></p>
+  </div>
+
+  <!-- Follow Up -->
+  <div class="mutasem-guideline-box" style="text-align:center;">
+    <div class="mutasem-guideline-icon" style="background-color:#076046; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 6v6l4 2" />
+      </svg>
+    </div>
+    <h4><?php echo e(__('front.follow_up')); ?></h4>
+    <p><?php echo e(__('front.track_submission_status')); ?></p>
+  </div>
+
+</div>
+
 </section>
 
 <section class="suggestion-form-section" id="complaint-form">
@@ -94,20 +96,47 @@
       </div>
     <?php endif; ?>
     
-    <div class="form-progress">
-      <div class="step">
-        <div class="circle active" id="step1-circle">1</div>
-        <div class="label"><?php echo e(__('front.personal_information')); ?></div>
-      </div>
-      <div class="step">
-        <div class="circle" id="step2-circle">2</div>
-        <div class="label"><?php echo e(__('front.complaint_information')); ?></div>
-      </div>
-      <div class="step">
-        <div class="circle" id="step3-circle">3</div>
-        <div class="label"><?php echo e(__('front.detailed_address')); ?></div>
-      </div>
+<div class="form-progress" style="display:flex; align-items:center; justify-content:center; gap:25px;">
+
+  <div class="step" style="display:flex; flex-direction:column; align-items:center;">
+    <div class="circle active" id="step1-circle"
+         style="width:30px; height:30px; border-radius:50%; background:#076046; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold;">
+      1
     </div>
+    <div class="label" style="margin-top:6px; font-size:14px; color:#076046;">
+      <?php echo e(__('front.personal_information')); ?>
+
+    </div>
+  </div>
+
+  <div style="width:60px; height:2px; background:#ccc;"></div>
+
+  <div class="step" style="display:flex; flex-direction:column; align-items:center;">
+    <div class="circle" id="step2-circle"
+         style="width:30px; height:30px; border-radius:50%; background:#fff; color:#555; border:2px solid #ccc; display:flex; align-items:center; justify-content:center; font-weight:bold;">
+      2
+    </div>
+    <div class="label" style="margin-top:6px; font-size:14px; color:#555;">
+      <?php echo e(__('front.complaint_information')); ?>
+
+    </div>
+  </div>
+
+  <div style="width:60px; height:2px; background:#ccc;"></div>
+
+  <div class="step" style="display:flex; flex-direction:column; align-items:center;">
+    <div class="circle" id="step3-circle"
+         style="width:30px; height:30px; border-radius:50%; background:#fff; color:#555; border:2px solid #ccc; display:flex; align-items:center; justify-content:center; font-weight:bold;">
+      3
+    </div>
+    <div class="label" style="margin-top:6px; font-size:14px; color:#555;">
+      <?php echo e(__('front.detailed_address')); ?>
+
+    </div>
+  </div>
+
+</div>
+
     
     <div class="form-box">
       <form id="complaint-form-main" action="<?php echo e(route('complaints.store')); ?>" method="POST" enctype="multipart/form-data">
@@ -163,7 +192,23 @@
             </select>
           </div>
           
-          <button type="button" class="next-btn" onclick="nextStep(1)"><?php echo e(__('front.next')); ?> ←</button>
+          <div class="form-group" style="margin-top:8px;">
+              <label style="display:flex; align-items:center; gap:8px;">
+                <input type="checkbox" name="hide_identity" value="1" style="width:16px; height:16px;">
+                <?php echo e(__('front.hide_my_identity')); ?>
+
+              </label>
+            </div>
+
+
+      <div style="display:flex; justify-content:center; margin-top:16px;">
+          <button type="button" id="nextBtn"
+                  style="display:none; width:20%; background:#076046; color:#fff; border:none; padding:10px 18px; border-radius:8px; cursor:pointer; font-size:14px;"
+                  onclick="nextStep(1)">
+            <?php echo e(__('front.next')); ?> ←
+          </button>
+        </div>
+
         </div>
         
         <!-- Step 2: Complaint Information -->
@@ -219,11 +264,22 @@
             </div>
           </div>
 
-          <div class="form-nav-buttons">
-            <button type="button" class="btn-secondary" onclick="prevStep(2)">→ <?php echo e(__('front.previous')); ?></button>
-            <button type="button" class="btn-primary" onclick="nextStep(2)"><?php echo e(__('front.next')); ?> ←</button>
-          </div>
-        </div>
+<div class="form-nav-buttons" style="display:flex; gap:10px; justify-content:center; margin-top:16px;">
+  <button type="button"
+          style="background:#fff; color:#076046; border:2px solid #076046; padding:9px 16px; border-radius:8px; cursor:pointer; font-size:14px; display:inline-flex; align-items:center; gap:6px;"
+          onclick="prevStep(2)">
+    → <?php echo e(__('front.previous')); ?>
+
+  </button>
+  <button type="button"
+          style="background:#076046; color:#fff; border:none; padding:10px 18px; border-radius:8px; cursor:pointer; font-size:14px;"
+          onclick="nextStep(2)">
+    <?php echo e(__('front.next')); ?> ←
+  </button>
+</div>
+
+</div>
+
         
         <!-- Step 3: Detailed Address -->
         <div class="form-step" id="step3">
@@ -252,14 +308,31 @@
             <div class="coordinates-group">
               <input type="number" name="lat" step="any" placeholder="<?php echo e(__('front.latitude')); ?>" value="<?php echo e(old('lat')); ?>" required>
               <input type="number" name="lng" step="any" placeholder="<?php echo e(__('front.longitude')); ?>" value="<?php echo e(old('lng')); ?>" required>
-              <button type="button" onclick="getCurrentLocation()" class="location-btn"><?php echo e(__('front.get_current_location')); ?></button>
+              <button type="button" onclick="getCurrentLocation()" 
+                    class="location-btn" 
+                    style="background:#076046; color:#fff; border:none; padding:10px 18px; 
+                           border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; 
+                           display:inline-flex; align-items:center; gap:6px; transition:0.3s ease;">
+              📍 <?php echo e(__('front.get_current_location')); ?>
+
+            </button>
+
             </div>
           </div>
 
-          <div class="form-nav-buttons">
-            <button type="button" class="btn-secondary" onclick="prevStep(3)">→ <?php echo e(__('front.previous')); ?></button>
-            <button type="submit" class="btn-primary"><?php echo e(__('front.submit_complaint')); ?> ←</button>
-          </div>
+<div class="form-nav-buttons" style="display:flex; gap:10px; justify-content:center; margin-top:16px;">
+  <button type="button"
+          style="background:#fff; color:#076046; border:2px solid #076046; padding:9px 16px; border-radius:8px; cursor:pointer; font-size:14px; display:inline-flex; align-items:center; gap:6px;"
+          onclick="prevStep(3)">
+    → <?php echo e(__('front.previous')); ?>
+
+  </button>
+  <button type="submit"
+          style="background:#076046; color:#fff; border:none; padding:10px 18px; border-radius:8px; cursor:pointer; font-size:14px;">
+    <?php echo e(__('front.submit_complaint')); ?> ←
+  </button>
+</div>
+
         </div>
         
       </form>
@@ -313,119 +386,199 @@
 </section>
 
 <script>
-let currentStep = 1;
+(function () {
+  let currentStep = 1;
 
-function nextStep(step) {
-    // Validate current step
-    const currentStepElement = document.getElementById(`step${step}`);
-    const requiredInputs = currentStepElement.querySelectorAll('input[required], select[required], textarea[required]');
-    let isValid = true;
-    
-    requiredInputs.forEach(input => {
-        if (!input.value.trim()) {
-            isValid = false;
-            input.style.borderColor = '#e74c3c';
-        } else {
-            input.style.borderColor = '';
-        }
+  // ===== Helpers =====
+  function isFieldFilled(input) {
+    if (!input || input.disabled) return true;
+    if (input.type === 'file') return !!(input.files && input.files.length > 0);
+    if (input.tagName === 'SELECT') return !!(input.value && input.value !== '');
+    return !!String(input.value || '').trim();
+  }
+
+  function $ (sel, root=document) { return root.querySelector(sel); }
+  function $$ (sel, root=document) { return Array.from(root.querySelectorAll(sel)); }
+
+  // ===== Progress Bar Coloring =====
+  function setProgress(activeStep) {
+    const progress = $('.form-progress');
+    if (!progress) return;
+
+    const circles = [
+      $('#step1-circle'),
+      $('#step2-circle'),
+      $('#step3-circle')
+    ].filter(Boolean);
+
+    const labels = $$('.step .label', progress);
+    // أي عنصر مباشر داخل .form-progress ليس .step نعتبره خط واصل
+    const connectors = Array.from(progress.children).filter(el => !el.classList.contains('step'));
+
+    circles.forEach((c, i) => {
+      const stepIndex = i + 1;
+      if (stepIndex < activeStep) {
+        c.style.background = '#fff';
+        c.style.color = '#076046';
+        c.style.border = '2px solid #076046';
+      } else if (stepIndex === activeStep) {
+        c.style.background = '#076046';
+        c.style.color = '#fff';
+        c.style.border = 'none';
+      } else {
+        c.style.background = '#fff';
+        c.style.color = '#555';
+        c.style.border = '2px solid #ccc';
+      }
     });
-    
-    if (!isValid) {
-        alert('<?php echo e(__("front.please_fill_required_fields")); ?>');
-        return;
-    }
-    
-    // Move to next step
-    document.getElementById(`step${step}`).classList.remove('active');
-    document.getElementById(`step${step + 1}`).classList.add('active');
-    document.getElementById(`step${step}-circle`).classList.remove('active');
-    document.getElementById(`step${step}-circle`).classList.add('done');
-    document.getElementById(`step${step + 1}-circle`).classList.add('active');
-    currentStep = step + 1;
-    updateStepVisibility();
-}
 
-function prevStep(step) {
-    // Move to previous step
-    document.getElementById(`step${step}`).classList.remove('active');
-    document.getElementById(`step${step - 1}`).classList.add('active');
-    document.getElementById(`step${step}-circle`).classList.remove('active');
-    document.getElementById(`step${step - 1}-circle`).classList.remove('done');
-    document.getElementById(`step${step - 1}-circle`).classList.add('active');
-    currentStep = step - 1;
-    updateStepVisibility();
-}
-
-function updateStepVisibility() {
-    const steps = document.querySelectorAll('.form-step');
-    steps.forEach((step, index) => {
-        if (step.classList.contains('active')) {
-            step.style.display = 'block';
-        } else {
-            step.style.display = 'none';
-        }
+    labels.forEach((l, i) => {
+      l.style.color = (i + 1 <= activeStep) ? '#076046' : '#555';
     });
-}
 
-function scrollToForm() {
-    document.getElementById('complaint-form').scrollIntoView({
-        behavior: 'smooth'
+    connectors.forEach((line, i) => {
+      // الخط الذي يسبق الخطوة النشطة أو المكتملة يكون أخضر
+      line.style.background = (i + 1 < activeStep) ? '#076046' : '#ccc';
+      line.style.height = line.style.height || '2px';
+      line.style.width  = line.style.width  || '60px';
     });
-}
+  }
 
-function getCurrentLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            document.querySelector('input[name="lat"]').value = position.coords.latitude;
-            document.querySelector('input[name="lng"]').value = position.coords.longitude;
-        });
+  // ===== Steps Visibility =====
+  function showOnlyActiveStep() {
+    $$('.form-step').forEach(step => {
+      step.style.display = step.classList.contains('active') ? 'block' : 'none';
+    });
+  }
+
+  function goToStep(stepNum) {
+    currentStep = stepNum;
+    showOnlyActiveStep();
+    setProgress(stepNum);
+  }
+
+  // ===== Step 1: control Next button visibility =====
+  function isStep1Valid() {
+    const step = $('#step1');
+    if (!step) return false;
+    const required = $$('#step1 input[required], #step1 select[required], #step1 textarea[required]');
+    return required.every(isFieldFilled);
+  }
+
+  function refreshStep1NextBtn() {
+    const btn = $('#nextBtn') || $('#step1 .next-btn');
+    if (!btn) return;
+    if (isStep1Valid()) {
+      btn.style.display = 'inline-block';
+      btn.style.width = '20%';
     } else {
-        alert('<?php echo e(__("front.geolocation_not_supported")); ?>');
+      btn.style.display = 'none';
     }
-}
+  }
 
-// File upload preview
-document.getElementById('photo-upload').addEventListener('change', function(e) {
-    showFilePreview(e.target.files, 'photo-preview');
-});
-
-document.getElementById('another-photo-upload').addEventListener('change', function(e) {
-    showFilePreview(e.target.files, 'another-photo-preview');
-});
-
-function showFilePreview(files, previewId) {
-    const preview = document.getElementById(previewId);
-    preview.innerHTML = '';
-    
-    Array.from(files).forEach(file => {
-        const div = document.createElement('div');
-        div.textContent = file.name;
-        div.style.padding = '5px';
-        div.style.backgroundColor = '#f8f9fa';
-        div.style.margin = '2px';
-        div.style.borderRadius = '4px';
-        preview.appendChild(div);
+  // ===== Navigation (Next / Prev) with validation per step =====
+  function validateCurrentStep(stepNum) {
+    const stepEl = $('#step' + stepNum);
+    if (!stepEl) return false;
+    const req = $$('input[required], select[required], textarea[required]', stepEl);
+    let ok = true;
+    req.forEach(input => {
+      const filled = isFieldFilled(input);
+      if (!filled) {
+        ok = false;
+        input.style.borderColor = '#e74c3c';
+      } else {
+        input.style.borderColor = '';
+      }
     });
-}
+    return ok;
+  }
 
-// Tab functionality
-document.querySelectorAll('.tab-btn').forEach(tab => {
-    tab.addEventListener('click', function() {
+  window.nextStep = function (stepNum) {
+    if (!validateCurrentStep(stepNum)) {
+      alert('<?php echo e(__("front.please_fill_required_fields")); ?>');
+      return;
+    }
+    const cur = $('#step' + stepNum);
+    const nxt = $('#step' + (stepNum + 1));
+    if (cur) cur.classList.remove('active');
+    if (nxt) nxt.classList.add('active');
+    goToStep(stepNum + 1);
+  };
+
+  window.prevStep = function (stepNum) {
+    const cur = $('#step' + stepNum);
+    const prv = $('#step' + (stepNum - 1));
+    if (cur) cur.classList.remove('active');
+    if (prv) prv.classList.add('active');
+    goToStep(stepNum - 1);
+  };
+
+  // ===== Misc (scroll, location, file preview, tabs) =====
+  window.scrollToForm = function () {
+    const el = $('#complaint-form');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  window.getCurrentLocation = function () {
+    if (!navigator.geolocation) {
+      alert('<?php echo e(__("front.geolocation_not_supported")); ?>');
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      const lat = $('input[name="lat"]');
+      const lng = $('input[name="lng"]');
+      if (lat) lat.value = pos.coords.latitude;
+      if (lng) lng.value = pos.coords.longitude;
+    });
+  };
+
+  function showFilePreview(files, previewId) {
+    const preview = $('#' + previewId);
+    if (!preview) return;
+    preview.innerHTML = '';
+    Array.from(files || []).forEach(file => {
+      const row = document.createElement('div');
+      row.textContent = file.name;
+      row.style.padding = '5px';
+      row.style.backgroundColor = '#f8f9fa';
+      row.style.margin = '2px';
+      row.style.borderRadius = '4px';
+      preview.appendChild(row);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // إظهار الخطوة 1 فقط وتلوين الشريط
+    goToStep(1);
+
+    // مراقبة حقول الخطوة الأولى لإظهار زر "التالي"
+    const step1Required = $$('#step1 input[required], #step1 select[required], #step1 textarea[required]');
+    step1Required.forEach(el => {
+      ['input','change','keyup','blur'].forEach(evt => el.addEventListener(evt, refreshStep1NextBtn));
+    });
+    // دعم الـ autofill
+    refreshStep1NextBtn();
+    setTimeout(refreshStep1NextBtn, 0);
+
+    // ربط رفع الملفات للمعاينة
+    const photo = $('#photo-upload');
+    if (photo) photo.addEventListener('change', e => showFilePreview(e.target.files, 'photo-preview'));
+    const another = $('#another-photo-upload');
+    if (another) another.addEventListener('change', e => showFilePreview(e.target.files, 'another-photo-preview'));
+
+    // تبويبات القائمة
+    $$('.tab-btn').forEach(tab => {
+      tab.addEventListener('click', function () {
         const status = this.getAttribute('data-status');
         const url = new URL(window.location);
-        if (status) {
-            url.searchParams.set('status', status);
-        } else {
-            url.searchParams.delete('status');
-        }
+        if (status) url.searchParams.set('status', status);
+        else url.searchParams.delete('status');
         window.location.href = url.toString();
+      });
     });
-});
-
-// Initialize
-document.addEventListener('DOMContentLoaded', function() {
-    updateStepVisibility();
-});
+  });
+})();
 </script>
 
 <?php $__env->stopSection(); ?>

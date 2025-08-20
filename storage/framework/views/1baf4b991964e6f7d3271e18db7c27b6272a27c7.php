@@ -136,6 +136,13 @@
                         <p> <?php echo e(__('messages.MunicipalCouncils')); ?> </p>
                     </a>
                 </li>
+               
+                <li class="nav-item">
+                    <a href="<?php echo e(route('new-listen-sessions.index')); ?>" class="nav-link">
+                        <i class="fas fa-building nav-icon"></i>
+                        <p> <?php echo e(__('messages.listen_sessions')); ?> </p>
+                    </a>
+                </li>
 
 
                  <li class="nav-item has-treeview">

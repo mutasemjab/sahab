@@ -18,7 +18,7 @@
              <span class="prev">&#10094;</span>
              <span class="next">&#10095;</span>
          </div>
-
+         
          <div class="slider-dots">
              @foreach ($banners as $index => $banner)
                  <span class="dot {{ $index == 0 ? 'active' : '' }}" onclick="goToSlide({{ $index }})"></span>
@@ -70,7 +70,7 @@
              @endforeach
          </div>
 
-         <a href="#" class="services-btn">{{ __('front.learn_more') }}</a>
+         <a href="{{ route('services') }}" class="services-btn">{{ __('front.learn_more') }}</a>
      </section>
 
      <section class="sessions-section">
@@ -81,12 +81,14 @@
                  <div class="session-card">
                      <div>
                          <div class="session-header">
-                             <span class="session-status {{ $session->type == 1 ? 'open' : 'coming' }}">
-                                 {{ $session->type == 1 ? __('front.open') : __('front.coming_soon') }}
-                             </span>
                             <span class="session-date">
                                 {{ \Carbon\Carbon::parse($session->date_of_event)->locale('ar')->translatedFormat('j F Y') }}
                             </span>
+                            
+                             <span class="session-status {{ $session->type == 1 ? 'open' : 'coming' }}">
+                                 {{ $session->type == 1 ? __('front.open') : __('front.coming_soon') }}
+                             </span>
+
 
                          </div>
                          <h3>{{ $session->{'title_' . $locale} }}</h3>
@@ -115,7 +117,7 @@
          </div>
 
          <div class="more-btn-wrapper">
-             <a href="#" class="services-btn">{{ __('front.more') }}</a>
+             <a href="{{ route('services') }}" class="services-btn">{{ __('front.more') }}</a>
          </div>
      </section>
 
@@ -145,15 +147,17 @@
                              <p class="start-date">{{ $locale == 'ar' ? 'بدءًا من:' : 'Starting from:' }}
                                  {{ $project->time }}</p>
                          @endif
-                         <a href="#" class="project-link"><i class="fas fa-arrow-left"></i>
-                             {{ $locale == 'ar' ? 'اعرف المزيد' : 'Learn More' }}</a>
+                         <a href="#" class="project-link">
+                             {{ $locale == 'ar' ? 'اعرف المزيد' : 'Learn More' }}
+                             <i class="fas fa-arrow-left"></i>
+                             </a>
                      </div>
                  </div>
              @endforeach
          </div>
 
          <div class="more-btn-wrapper">
-             <a href="#" class="services-btn">{{ $locale == 'ar' ? 'المزيد' : 'More' }}</a>
+             <a href="{{ route('services') }}" class="services-btn">{{ $locale == 'ar' ? 'المزيد' : 'More' }}</a>
          </div>
      </section>
 
@@ -168,15 +172,17 @@
                          <span class="news-date"> {{ \Carbon\Carbon::parse($session->date_of_adv)->locale('ar')->translatedFormat('j F Y') }}</span>
                          <h3>{{ $adv->{'title_' . $locale} }}</h3>
                          <p>{!! Str::limit($adv->{'description_' . $locale}, 60) !!}...</p>
-                         <a href="#" class="news-link"><i class="fas fa-arrow-left"></i>
-                             {{ $locale == 'ar' ? 'اقرأ المزيد' : 'Read More' }}</a>
+                         <a href="#" class="news-link">
+                             {{ $locale == 'ar' ? 'اقرأ المزيد' : 'Read More' }}
+                             <i class="fas fa-arrow-left"></i>
+                             </a>
                      </div>
                  </div>
              @endforeach
          </div>
 
          <div class="more-btn-wrapper">
-             <a href="#" class="services-btn">{{ $locale == 'ar' ? 'المزيد' : 'More' }}</a>
+             <a href="{{ route('services') }}" class="services-btn">{{ $locale == 'ar' ? 'المزيد' : 'More' }}</a>
          </div>
      </section>
 
@@ -184,28 +190,30 @@
          <h2 class="section-title">{{ __('front.quick_access') }}</h2>
 
          <div class="quick-grid">
-             <div class="quick-card">
-                 <i class="fas fa-calendar-alt"></i>
-                 <span>{{ __('front.event_calendar') }}</span>
-             </div>
-             <a href="{{route('questions')}}">
-                <div class="quick-card">
-                 <i class="fas fa-info-circle"></i>
-                 <span>{{ __('front.faq') }}</span>
-             </div>
-             </a>
-             <a href="{{route('contact.index')}}">
-             <div class="quick-card">
-                 <i class="fas fa-phone-alt"></i>
-                 <span>{{ __('front.contact_guide') }}</span>
-             </div>
-              </a>
              <a href="{{route('contact.index')}}">
              <div class="quick-card">
                  <i class="fas fa-map-marked-alt"></i>
                  <span>{{ __('front.maps') }}</span>
              </div>
               </a>
+
+             <a href="{{route('contact.index')}}">
+             <div class="quick-card">
+                 <i class="fas fa-phone-alt"></i>
+                 <span>{{ __('front.contact_guide') }}</span>
+             </div>
+              </a>
+              
+             <a href="{{route('questions')}}">
+                <div class="quick-card">
+                 <i class="fas fa-info-circle"></i>
+                 <span>{{ __('front.faq') }}</span>
+             </div>
+             </a>
+             <div class="quick-card">
+                 <i class="fas fa-calendar-alt"></i>
+                 <span>{{ __('front.event_calendar') }}</span>
+             </div>
          </div>
      </section>
 
@@ -253,7 +261,7 @@
              }
 
              showSlide(currentSlide);
-             setInterval(nextSlide, 5000);
+             setInterval(nextSlide, 10000);
          });
 
     // التقويم

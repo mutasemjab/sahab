@@ -17,18 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->nullable();
-            $table->string('password');
-            $table->string('phone')->nullable();
-            $table->tinyInteger('user_type');  // 1 user   // 2 organaization
+            $table->string('phone')->unique();
             $table->tinyInteger('activate')->default(1); // 1 yes //2 no
             $table->rememberToken();
             $table->timestamps();
-
-            // Composite unique index for email and user_type
-            $table->unique(['email', 'user_type']);
-
-            // Composite unique index for phone and user_type
-            $table->unique(['phone', 'user_type']);
         });
     }
 

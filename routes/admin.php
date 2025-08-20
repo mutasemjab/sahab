@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\TenderController;
 use App\Http\Controllers\Admin\TenderDetailController;
 use App\Http\Controllers\Admin\TopicDiscussionController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\NewListenSessionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Spatie\Permission\Models\Permission;
 /*
@@ -88,6 +89,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('services', App\Http\Controllers\Admin\ServiceController::class);
         Route::resource('public-sessions', PublicSessionController::class);
         Route::resource('projects', ProjectController::class);
+        Route::resource('new-listen-sessions', NewListenSessionController::class);
 
         Route::resource('advs', AdvController::class);
         Route::resource('news', NewsController::class);

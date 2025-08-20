@@ -13,11 +13,17 @@
   </div>
 </div>
 
-<section class="complaints-summary-section">
+<section class="mutasem-propose-intro">
+  <div class="mutasem-container">
   <h2 class="section-title">{{ __('front.complaint_details') }}</h2>
   <p class="section-subtitle">
     {{ __('front.complaint_summary_description') }}
   </p>
+  </div>
+</section>
+
+<section class="complaints-summary-section">
+
 
   <div class="filters-bar">
     <div class="filters-tabs">

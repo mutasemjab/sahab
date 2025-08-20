@@ -35,11 +35,7 @@
           <h4>{{ $link->title }}</h4>
           <p>{{ $link->description }}</p>
         </div>
-        @if($link->is_external)
-        <div class="external-link-indicator">
-          <i class="fas fa-external-link-alt"></i>
-        </div>
-        @endif
+
       </a>
       @endforeach
     </div>

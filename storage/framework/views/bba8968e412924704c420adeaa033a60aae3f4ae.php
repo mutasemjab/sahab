@@ -18,7 +18,7 @@
              <span class="prev">&#10094;</span>
              <span class="next">&#10095;</span>
          </div>
-
+         
          <div class="slider-dots">
              <?php $__currentLoopData = $banners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                  <span class="dot <?php echo e($index == 0 ? 'active' : ''); ?>" onclick="goToSlide(<?php echo e($index); ?>)"></span>
@@ -71,7 +71,7 @@
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
          </div>
 
-         <a href="#" class="services-btn"><?php echo e(__('front.learn_more')); ?></a>
+         <a href="<?php echo e(route('services')); ?>" class="services-btn"><?php echo e(__('front.learn_more')); ?></a>
      </section>
 
      <section class="sessions-section">
@@ -82,14 +82,16 @@
                  <div class="session-card">
                      <div>
                          <div class="session-header">
-                             <span class="session-status <?php echo e($session->type == 1 ? 'open' : 'coming'); ?>">
-                                 <?php echo e($session->type == 1 ? __('front.open') : __('front.coming_soon')); ?>
-
-                             </span>
                             <span class="session-date">
                                 <?php echo e(\Carbon\Carbon::parse($session->date_of_event)->locale('ar')->translatedFormat('j F Y')); ?>
 
                             </span>
+                            
+                             <span class="session-status <?php echo e($session->type == 1 ? 'open' : 'coming'); ?>">
+                                 <?php echo e($session->type == 1 ? __('front.open') : __('front.coming_soon')); ?>
+
+                             </span>
+
 
                          </div>
                          <h3><?php echo e($session->{'title_' . $locale}); ?></h3>
@@ -120,7 +122,7 @@
          </div>
 
          <div class="more-btn-wrapper">
-             <a href="#" class="services-btn"><?php echo e(__('front.more')); ?></a>
+             <a href="<?php echo e(route('services')); ?>" class="services-btn"><?php echo e(__('front.more')); ?></a>
          </div>
      </section>
 
@@ -154,15 +156,18 @@
 
                                  <?php echo e($project->time); ?></p>
                          <?php endif; ?>
-                         <a href="#" class="project-link"><i class="fas fa-arrow-left"></i>
-                             <?php echo e($locale == 'ar' ? 'اعرف المزيد' : 'Learn More'); ?></a>
+                         <a href="#" class="project-link">
+                             <?php echo e($locale == 'ar' ? 'اعرف المزيد' : 'Learn More'); ?>
+
+                             <i class="fas fa-arrow-left"></i>
+                             </a>
                      </div>
                  </div>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
          </div>
 
          <div class="more-btn-wrapper">
-             <a href="#" class="services-btn"><?php echo e($locale == 'ar' ? 'المزيد' : 'More'); ?></a>
+             <a href="<?php echo e(route('services')); ?>" class="services-btn"><?php echo e($locale == 'ar' ? 'المزيد' : 'More'); ?></a>
          </div>
      </section>
 
@@ -177,15 +182,18 @@
                          <span class="news-date"> <?php echo e(\Carbon\Carbon::parse($session->date_of_adv)->locale('ar')->translatedFormat('j F Y')); ?></span>
                          <h3><?php echo e($adv->{'title_' . $locale}); ?></h3>
                          <p><?php echo Str::limit($adv->{'description_' . $locale}, 60); ?>...</p>
-                         <a href="#" class="news-link"><i class="fas fa-arrow-left"></i>
-                             <?php echo e($locale == 'ar' ? 'اقرأ المزيد' : 'Read More'); ?></a>
+                         <a href="#" class="news-link">
+                             <?php echo e($locale == 'ar' ? 'اقرأ المزيد' : 'Read More'); ?>
+
+                             <i class="fas fa-arrow-left"></i>
+                             </a>
                      </div>
                  </div>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
          </div>
 
          <div class="more-btn-wrapper">
-             <a href="#" class="services-btn"><?php echo e($locale == 'ar' ? 'المزيد' : 'More'); ?></a>
+             <a href="<?php echo e(route('services')); ?>" class="services-btn"><?php echo e($locale == 'ar' ? 'المزيد' : 'More'); ?></a>
          </div>
      </section>
 
@@ -193,28 +201,30 @@
          <h2 class="section-title"><?php echo e(__('front.quick_access')); ?></h2>
 
          <div class="quick-grid">
-             <div class="quick-card">
-                 <i class="fas fa-calendar-alt"></i>
-                 <span><?php echo e(__('front.event_calendar')); ?></span>
-             </div>
-             <a href="<?php echo e(route('questions')); ?>">
-                <div class="quick-card">
-                 <i class="fas fa-info-circle"></i>
-                 <span><?php echo e(__('front.faq')); ?></span>
-             </div>
-             </a>
-             <a href="<?php echo e(route('contact.index')); ?>">
-             <div class="quick-card">
-                 <i class="fas fa-phone-alt"></i>
-                 <span><?php echo e(__('front.contact_guide')); ?></span>
-             </div>
-              </a>
              <a href="<?php echo e(route('contact.index')); ?>">
              <div class="quick-card">
                  <i class="fas fa-map-marked-alt"></i>
                  <span><?php echo e(__('front.maps')); ?></span>
              </div>
               </a>
+
+             <a href="<?php echo e(route('contact.index')); ?>">
+             <div class="quick-card">
+                 <i class="fas fa-phone-alt"></i>
+                 <span><?php echo e(__('front.contact_guide')); ?></span>
+             </div>
+              </a>
+              
+             <a href="<?php echo e(route('questions')); ?>">
+                <div class="quick-card">
+                 <i class="fas fa-info-circle"></i>
+                 <span><?php echo e(__('front.faq')); ?></span>
+             </div>
+             </a>
+             <div class="quick-card">
+                 <i class="fas fa-calendar-alt"></i>
+                 <span><?php echo e(__('front.event_calendar')); ?></span>
+             </div>
          </div>
      </section>
 
@@ -262,7 +272,7 @@
              }
 
              showSlide(currentSlide);
-             setInterval(nextSlide, 5000);
+             setInterval(nextSlide, 10000);
          });
 
     // التقويم

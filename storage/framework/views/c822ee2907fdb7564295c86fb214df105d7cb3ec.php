@@ -16,14 +16,14 @@
     <div class="projects-filters">
       <div class="status-buttons">
         <button class="filter-btn <?php echo e(request('type') == '' ? 'active' : ''); ?>" data-type=""><?php echo e(__('front.all_projects')); ?></button>
-        <button class="filter-btn <?php echo e(request('type') == '3' ? 'active' : ''); ?>" data-type="3"><?php echo e(__('front.planned')); ?></button>
-        <button class="filter-btn <?php echo e(request('type') == '2' ? 'active' : ''); ?>" data-type="2"><?php echo e(__('front.ongoing')); ?></button>
         <button class="filter-btn <?php echo e(request('type') == '1' ? 'active' : ''); ?>" data-type="1"><?php echo e(__('front.completed')); ?></button>
+        <button class="filter-btn <?php echo e(request('type') == '2' ? 'active' : ''); ?>" data-type="2"><?php echo e(__('front.ongoing')); ?></button>
+        <button class="filter-btn <?php echo e(request('type') == '3' ? 'active' : ''); ?>" data-type="3"><?php echo e(__('front.planned')); ?></button>
       </div>
       <div class="search-sort">
         <form id="search-form" method="GET">
           <input type="hidden" name="type" value="<?php echo e(request('type')); ?>">
-          <input type="text" name="search" placeholder="<?php echo e(__('front.search_projects')); ?>" value="<?php echo e(request('search')); ?>">
+            <input type="text" name="search" placeholder="&#128269; <?php echo e(__('front.search_projects')); ?>">
           <select name="sort" onchange="document.getElementById('search-form').submit()">
             <option value="newest" <?php echo e(request('sort') == 'newest' ? 'selected' : ''); ?>><?php echo e(__('front.newest_first')); ?></option>
             <option value="oldest" <?php echo e(request('sort') == 'oldest' ? 'selected' : ''); ?>><?php echo e(__('front.oldest_first')); ?></option>

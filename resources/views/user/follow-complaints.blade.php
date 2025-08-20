@@ -5,7 +5,7 @@
   <div class="breadcrumb-container">
     <a href="{{ route('home') }}">{{ __('front.home') }}</a>
     <span> <i class="fas fa-chevron-left"></i> </span>
-    <a href="{{ route('complaint.index') }}" class="active">{{ __('front.track_your_complaint') }}</a>
+    <a href="{{ route('complaints.index') }}" class="active">{{ __('front.track_your_complaint') }}</a>
   </div>
 </div>
 

@@ -18,14 +18,14 @@
     <div class="projects-filters">
       <div class="status-buttons">
         <button class="filter-btn {{ request('type') == '' ? 'active' : '' }}" data-type="">{{ __('front.all_projects') }}</button>
-        <button class="filter-btn {{ request('type') == '3' ? 'active' : '' }}" data-type="3">{{ __('front.planned') }}</button>
-        <button class="filter-btn {{ request('type') == '2' ? 'active' : '' }}" data-type="2">{{ __('front.ongoing') }}</button>
         <button class="filter-btn {{ request('type') == '1' ? 'active' : '' }}" data-type="1">{{ __('front.completed') }}</button>
+        <button class="filter-btn {{ request('type') == '2' ? 'active' : '' }}" data-type="2">{{ __('front.ongoing') }}</button>
+        <button class="filter-btn {{ request('type') == '3' ? 'active' : '' }}" data-type="3">{{ __('front.planned') }}</button>
       </div>
       <div class="search-sort">
         <form id="search-form" method="GET">
           <input type="hidden" name="type" value="{{ request('type') }}">
-          <input type="text" name="search" placeholder="{{ __('front.search_projects') }}" value="{{ request('search') }}">
+            <input type="text" name="search" placeholder="&#128269; {{ __('front.search_projects') }}">
           <select name="sort" onchange="document.getElementById('search-form').submit()">
             <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>{{ __('front.newest_first') }}</option>
             <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>{{ __('front.oldest_first') }}</option>

@@ -18,10 +18,15 @@
 
 <section class="mutasem-faq-section">
   <div class="mutasem-faq-container">
-    <div class="mutasem-faq-search">
-      <input type="text" id="faqSearch" placeholder="{{ __('front.search') }}" autocomplete="off">
-      <span class="mutasem-faq-search-icon">🔍</span>
-    </div>
+<div class="mutasem-faq-search" style="position: relative; width: 100%;">
+  <input type="text" id="faqSearch" placeholder="{{ __('front.search') }}" autocomplete="off"
+         style="padding-left: 40px; width: 100%; box-sizing: border-box;">
+  <span class="mutasem-faq-search-icon" 
+        style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888;">
+    🔍
+  </span>
+</div>
+
 
     <div class="mutasem-faq-list" id="faqList">
       @forelse($questions as $question)
@@ -64,8 +69,8 @@
         <a href="mailto:{{$setting->email}}" class="mutasem-help-link">
           📧 {{ __('front.email_support') }}
         </a>
-        <a href="#" class="mutasem-help-link">
-          💬 {{ __('front.send_message') }}
+        <a href="{{route('contact.index')}}" class="mutasem-help-link">
+          💬 الدردشة المباشرة
         </a>
       </div>
     </div>

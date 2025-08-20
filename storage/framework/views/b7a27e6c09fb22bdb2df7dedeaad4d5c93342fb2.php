@@ -67,9 +67,9 @@
   <div class="org-chart">
     <div class="level-1"><?php echo e(__('front.president')); ?></div>
     <div class="level-2">
-      <div class="box"><?php echo e(__('front.financial_affairs')); ?></div>
-      <div class="box"><?php echo e(__('front.technical_affairs')); ?></div>
       <div class="box"><?php echo e(__('front.administrative_affairs')); ?></div>
+      <div class="box"><?php echo e(__('front.technical_affairs')); ?></div>
+      <div class="box"><?php echo e(__('front.financial_affairs')); ?></div>
     </div>
   </div>
 </section>

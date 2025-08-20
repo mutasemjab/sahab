@@ -18,43 +18,64 @@
 </section>
 
 <section class="mutasem-propose-guidelines">
+    <h2 class="mutasem-title">ارشادات التقديم</h2>
   <div class="mutasem-container mutasem-guideline-grid">
     
     <!-- Fill Form -->
-    <div class="mutasem-guideline-box">
-      <div class="mutasem-guideline-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-          <path d="M12 20h9" />
-          <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
-        </svg>
-      </div>
-      <h4>{{ __('front.fill_form') }}</h4>
-      <p>{{ __('front.provide_detailed_info') }}</p>
-    </div>
+<div class="mutasem-guideline-box" style="text-align:center;">
+  <div class="mutasem-guideline-icon" 
+       style="background-color:#076046; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" 
+         viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+      <path d="M12 20h9" />
+      <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+    </svg>
+  </div>
+  <h4 style="margin:8px 0; font-size:16px; font-weight:600; color:#333;">
+    {{ __('front.fill_form') }}
+  </h4>
+  <p style="font-size:14px; color:#555; margin:0;">
+    {{ __('front.provide_detailed_info') }}
+  </p>
+</div>
+
     
-    <!-- Submit -->
-    <div class="mutasem-guideline-box">
-      <div class="mutasem-guideline-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-          <path d="M22 2 11 13" />
-          <path d="m22 2-7 20-4-9-9-4 20-7z" />
-        </svg>
-      </div>
-      <h4>{{ __('front.submit') }}</h4>
-      <p>{{ __('front.review_by_team') }}</p>
-    </div>
-    
-    <!-- Follow Up -->
-    <div class="mutasem-guideline-box">
-      <div class="mutasem-guideline-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 6v6l4 2" />
-        </svg>
-      </div>
-      <h4>{{ __('front.follow_up') }}</h4>
-      <p>{{ __('front.track_submission_status') }}</p>
-    </div>
+<!-- Submit -->
+<div class="mutasem-guideline-box" style="text-align:center;">
+  <div class="mutasem-guideline-icon" 
+       style="background-color:#076046; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" 
+         viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+      <path d="M22 2 11 13" />
+      <path d="m22 2-7 20-4-9-9-4 20-7z" />
+    </svg>
+  </div>
+  <h4 style="margin:8px 0; font-size:16px; font-weight:600; color:#333;">
+    {{ __('front.submit') }}
+  </h4>
+  <p style="font-size:14px; color:#555; margin:0;">
+    {{ __('front.review_by_team') }}
+  </p>
+</div>
+
+<!-- Follow Up -->
+<div class="mutasem-guideline-box" style="text-align:center;">
+  <div class="mutasem-guideline-icon" 
+       style="background-color:#076046; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" 
+         viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 6v6l4 2" />
+    </svg>
+  </div>
+  <h4 style="margin:8px 0; font-size:16px; font-weight:600; color:#333;">
+    {{ __('front.follow_up') }}
+  </h4>
+  <p style="font-size:14px; color:#555; margin:0;">
+    {{ __('front.track_submission_status') }}
+  </p>
+</div>
+
     
   </div>
 </section>
@@ -79,16 +100,35 @@
       </div>
     @endif
     
-    <div class="form-progress">
-      <div class="step">
-        <div class="circle active" id="step1-circle">1</div>
-        <div class="label">{{ __('front.personal_information') }}</div>
-      </div>
-      <div class="step">
-        <div class="circle" id="step2-circle">2</div>
-        <div class="label">{{ __('front.suggestion_information') }}</div>
-      </div>
+ <div class="form-progress" style="display:flex; align-items:center; justify-content:center; gap:30px;">
+
+  <!-- Step 1 -->
+  <div class="step" style="display:flex; flex-direction:column; align-items:center;">
+    <div id="step1-circle"
+         style="width:30px; height:30px; border-radius:50%; background:#076046; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold;">
+      1
     </div>
+    <div class="label" style="margin-top:6px; font-size:14px; color:#076046;">
+      {{ __('front.personal_information') }}
+    </div>
+  </div>
+
+  <!-- الخط -->
+  <div style="width:60px; height:2px; background:#ccc;"></div>
+
+  <!-- Step 2 -->
+  <div class="step" style="display:flex; flex-direction:column; align-items:center;">
+    <div id="step2-circle"
+         style="width:30px; height:30px; border-radius:50%; background:#fff; color:#555; border:2px solid #ccc; display:flex; align-items:center; justify-content:center; font-weight:bold;">
+      2
+    </div>
+    <div class="label" style="margin-top:6px; font-size:14px; color:#555;">
+      {{ __('front.suggestion_information') }}
+    </div>
+  </div>
+
+</div>
+
     
     <div class="form-box">
       <form id="suggestion-form" action="{{ route('suggestions.store') }}" method="POST">
@@ -134,32 +174,84 @@
             </select>
           </div>
           
-          <button type="button" class="next-btn" onclick="nextStep()">{{ __('front.next') }} ←</button>
+                    <div class="form-group" style="margin-top:8px;">
+              <label style="display:flex; align-items:center; gap:8px;">
+                <input type="checkbox" name="hide_identity" value="1" style="width:16px; height:16px;">
+                {{ __('front.hide_my_identity') }}
+              </label>
+            </div>
+          
+<div style="text-align:center; margin-top:16px;">
+  <button type="button" id="nextBtn" class="next-btn"
+          style="display:none; background:#076046; color:#fff; border:none; padding:10px 18px; border-radius:8px; cursor:pointer; font-size:14px;width: 15%"
+          onclick="goNext()">
+    {{ __('front.next') }} ←
+  </button>
+</div>
+
+
         </div>
         
         <!-- Step 2: Suggestion Information -->
-        <div class="form-step" id="step2">
-          <h4 class="form-heading">{{ __('front.suggestion_information') }}</h4>
-          
-          <div class="form-group">
-            <label>{{ __('front.suggestion_details') }}</label>
-            <textarea name="note" placeholder="{{ __('front.describe_suggestion') }}" rows="6" required>{{ old('note') }}</textarea>
-          </div>
-          
-          <div class="form-group">
-            <label>{{ __('front.hide_personal_info') }}</label>
-            <select name="hide_information" required>
-              <option value="" disabled {{ old('hide_information') ? '' : 'selected' }}>{{ __('front.choose_option') }}</option>
-              <option value="1" {{ old('hide_information') == '1' ? 'selected' : '' }}>{{ __('front.yes_hide') }}</option>
-              <option value="2" {{ old('hide_information') == '2' ? 'selected' : '' }}>{{ __('front.no_show') }}</option>
-            </select>
-          </div>
-          
-          <div class="form-buttons">
-            <button type="button" class="prev-btn" onclick="prevStep()">← {{ __('front.previous') }}</button>
-            <button type="submit" class="submit-btn">{{ __('front.submit_suggestion') }}</button>
-          </div>
-        </div>
+<div class="form-step" id="step2">
+  <h4 class="form-heading">{{ __('front.suggestion_information') }}</h4>
+
+  {{-- الفئة --}}
+  <div class="form-group">
+    <label>{{ __('front.category') }}</label>
+    <select name="category" required>
+      <option value="" disabled {{ old('category') ? '' : 'selected' }}>{{ __('front.choose_category') }}</option>
+      <option value="1" {{ old('category') == '1' ? 'selected' : '' }}>{{ __('front.category_1') }}</option>
+      <option value="2" {{ old('category') == '2' ? 'selected' : '' }}>{{ __('front.category_2') }}</option>
+      <option value="3" {{ old('category') == '3' ? 'selected' : '' }}>{{ __('front.category_3') }}</option>
+    </select>
+  </div>
+
+  {{-- الموضوع --}}
+  <div class="form-group">
+    <label>{{ __('front.subject') }}</label>
+    <input type="text" name="subject" placeholder="{{ __('front.subject') }}" value="{{ old('subject') }}" required>
+  </div>
+
+  {{-- الوصف --}}
+  <div class="form-group">
+    <label>{{ __('front.description') }}</label>
+    <textarea name="note" placeholder="{{ __('front.describe_suggestion') }}" rows="6" required>{{ old('note') }}</textarea>
+  </div>
+
+  {{-- إرفاق نسخة من الشكوى الأساسية --}}
+  <div class="form-group">
+    <label style="display:block; margin-bottom:8px;">
+      {{ __('front.attach_primary_complaint') }} <span style="color:#777;">(png, jpg, jpeg, gif)</span>
+    </label>
+
+    <div id="dropArea"
+         style="border:2px dashed #cbd5d1; background:#fafafa; border-radius:10px; padding:20px; text-align:center; cursor:pointer;">
+      <div style="font-size:28px; line-height:1; color:#9aa2a6;">☁️</div>
+      <div style="margin-top:6px; color:#333;">{{ __('front.drag_drop_or_click') }}</div>
+      <div style="margin-top:4px; color:#888; font-size:12px;">{{ __('front.max_file_size') }}: 10MB</div>
+      <input id="fileInput" name="attachments[]" type="file" multiple accept=".png,.jpg,.jpeg,.gif"
+             style="display:none;">
+    </div>
+
+    <div id="fileList" style="margin-top:10px; font-size:13px; color:#444;"></div>
+  </div>
+
+
+<div class="form-buttons" style="display:flex; gap:10px; justify-content:center; margin-top:16px;">
+  <button type="button" class="prev-btn"
+          style="background:#fff; color:#076046; border:2px solid #076046; padding:9px 16px; border-radius:8px; cursor:pointer; font-size:14px; display:inline-flex; align-items:center; gap:6px;"
+          onclick="goPrev()">
+    ← {{ __('front.previous') }}
+  </button>
+  <button type="submit" class="submit-btn"
+          style="background:#076046; color:#fff; border:none; padding:10px 18px; border-radius:8px; cursor:pointer; font-size:14px;width: 20%">
+    {{ __('front.submit_suggestion') }}
+  </button>
+</div>
+
+</div>
+
         
       </form>
     </div>
@@ -167,74 +259,102 @@
     
   </div>
 </section>
-
 <script>
-let currentStep = 1;
+(function () {
+  const stepEl = {
+    1: document.getElementById('step1'),
+    2: document.getElementById('step2')
+  };
+  const circleEl = {
+    1: document.getElementById('step1-circle'),
+    2: document.getElementById('step2-circle')
+  };
+  const labelEl = {
+    1: document.querySelector('.form-progress .step:nth-child(1) .label'),
+    2: document.querySelector('.form-progress .step:nth-child(3) .label') // بعد عنصر الخط
+  };
 
-function nextStep() {
-    // Validate current step
-    const step1Inputs = document.querySelectorAll('#step1 input[required], #step1 select[required]');
-    let isValid = true;
-    
-    step1Inputs.forEach(input => {
-        if (!input.value.trim()) {
-            isValid = false;
-            input.style.borderColor = '#e74c3c';
-        } else {
-            input.style.borderColor = '';
-        }
-    });
-    
-    if (!isValid) {
-        alert('{{ __("front.please_fill_required_fields") }}');
-        return;
+  function setProgress(activeStep) {
+    if (activeStep === 1) {
+      // دائرة 1 خضراء
+      circleEl[1].style.background = '#076046';
+      circleEl[1].style.color = '#fff';
+      circleEl[1].style.border = 'none';
+      if (labelEl[1]) labelEl[1].style.color = '#076046';
+
+      // دائرة 2 بيضاء
+      circleEl[2].style.background = '#fff';
+      circleEl[2].style.color = '#555';
+      circleEl[2].style.border = '2px solid #ccc';
+      if (labelEl[2]) labelEl[2].style.color = '#555';
+    } else {
+      // دائرة 1 "تم"
+      circleEl[1].style.background = '#fff';
+      circleEl[1].style.color = '#076046';
+      circleEl[1].style.border = '2px solid #076046';
+      if (labelEl[1]) labelEl[1].style.color = '#555';
+
+      // دائرة 2 خضراء
+      circleEl[2].style.background = '#076046';
+      circleEl[2].style.color = '#fff';
+      circleEl[2].style.border = 'none';
+      if (labelEl[2]) labelEl[2].style.color = '#076046';
     }
-    
-    // Move to step 2
-    document.getElementById('step1').classList.remove('active');
-    document.getElementById('step2').classList.add('active');
-    document.getElementById('step1-circle').classList.remove('active');
-    document.getElementById('step1-circle').classList.add('done');
-    document.getElementById('step2-circle').classList.add('active');
-    currentStep = 2;
-}
+  }
 
-function prevStep() {
-    // Move to step 1
-    document.getElementById('step2').classList.remove('active');
-    document.getElementById('step1').classList.add('active');
-    document.getElementById('step2-circle').classList.remove('active');
-    document.getElementById('step1-circle').classList.remove('done');
-    document.getElementById('step1-circle').classList.add('active');
-    currentStep = 1;
-}
+  function show(stepNum) {
+    stepEl[1].style.display = (stepNum === 1 ? 'block' : 'none');
+    stepEl[2].style.display = (stepNum === 2 ? 'block' : 'none');
+    setProgress(stepNum);
+  }
 
-// Show only active step
-document.addEventListener('DOMContentLoaded', function() {
-    const steps = document.querySelectorAll('.form-step');
-    steps.forEach((step, index) => {
-        if (index !== 0) {
-            step.style.display = 'none';
-        }
+  function isStep1Valid() {
+    const name   = document.querySelector('#step1 input[name="name"]');
+    const phone  = document.querySelector('#step1 input[name="phone"]');
+    const age    = document.querySelector('#step1 select[name="age"]');
+    const gender = document.querySelector('#step1 select[name="gender"]');
+    return !!(name?.value.trim() && phone?.value.trim() && age?.value && gender?.value);
+  }
+
+  function refreshNextBtn() {
+    const btn = document.getElementById('nextBtn');
+    if (!btn) return;
+    btn.style.display = isStep1Valid() ? 'inline-block' : 'none';
+  }
+
+  // نجعل الدوال متاحة للزرار
+  window.goNext = function () {
+    if (!isStep1Valid()) {
+      alert('{{ __("front.please_fill_required_fields") }}');
+      return;
+    }
+    stepEl[1].classList.remove('active');
+    stepEl[2].classList.add('active');
+    show(2);
+  };
+
+  window.goPrev = function () {
+    stepEl[2].classList.remove('active');
+    stepEl[1].classList.add('active');
+    show(1);
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // اعرض الخطوة الأولى فقط
+    show(1);
+
+    // اربط الأحداث على الخانات المطلوبة لإظهار/إخفاء زر "التالي"
+    document.querySelectorAll('#step1 input[required], #step1 select[required]').forEach(el => {
+      ['input','change','keyup','blur'].forEach(evt => el.addEventListener(evt, refreshNextBtn));
     });
-});
 
-// Handle step visibility
-function updateStepVisibility() {
-    const steps = document.querySelectorAll('.form-step');
-    steps.forEach((step, index) => {
-        if (step.classList.contains('active')) {
-            step.style.display = 'block';
-        } else {
-            step.style.display = 'none';
-        }
-    });
-}
+    // دعم الأوتوفيل
+    refreshNextBtn();
+    setTimeout(refreshNextBtn, 0);
 
-// Update visibility when moving between steps
-document.querySelectorAll('.next-btn, .prev-btn').forEach(btn => {
-    btn.addEventListener('click', updateStepVisibility);
-});
+  });
+})();
 </script>
+
 
 @endsection

@@ -299,6 +299,38 @@ return [
   'suggestion_deleted_successfully' => 'تم حذف الاقتراح بنجاح.',
   'yes' => 'نعم',
   'no' => 'لا',
+    'actions' => 'الإجراءات',
+    'created_at' => 'تاريخ الإنشاء',
+    'updated_at' => 'تاريخ التحديث',
+    'confirm_delete' => 'هل أنت متأكد من حذف هذه الجلسة؟',
+    'no_image' => 'لا توجد صورة',
+    'current_photo' => 'الصورة الحالية',
+    'leave_empty_keep_current' => 'اتركه فارغاً للاحتفاظ بالصورة الحالية',
+
+    // Listen Sessions
+    'listen_sessions' => 'جلسات الاستماع',
+    'session_details' => 'تفاصيل الجلسة',
+    'add_new_session' => 'إضافة جلسة جديدة',
+    'add_first_session' => 'أضف جلستك الأولى',
+    'edit_session' => 'تعديل الجلسة',
+    'view_session' => 'عرض الجلسة',
+    'create_session' => 'إنشاء جلسة',
+    'update_session' => 'تحديث الجلسة',
+    'no_sessions_found' => 'لم يتم العثور على جلسات.',
+
+    // Form Fields
+    'photo' => 'الصورة',
+    'title' => 'العنوان',
+    'title_english' => 'العنوان (إنجليزي)',
+    'title_arabic' => 'العنوان (عربي)',
+    'description' => 'الوصف',
+    'description_english' => 'الوصف (إنجليزي)',
+    'description_arabic' => 'الوصف (عربي)',
+
+    // Success Messages
+    'session_created_successfully' => 'تم إنشاء الجلسة بنجاح!',
+    'session_updated_successfully' => 'تم تحديث الجلسة بنجاح!',
+    'session_deleted_successfully' => 'تم حذف الجلسة بنجاح!',
   "" => "",
   "" => "",
   "" => "",

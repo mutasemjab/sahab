@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NewListenSessionController;
 use App\Http\Controllers\ImportantLinkController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\CommunityController;
@@ -12,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MediaCenterController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SessionController;
@@ -36,7 +39,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+      // Add modal registration route
+    Route::post('/modal-register', [AuthController::class, 'modalRegister'])->name('modal.register');
+    Route::post('/auth-login', [AuthController::class, 'login'])->name('auth.login');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
     
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -72,6 +78,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
     Route::get('/communitydetails', [CommunityController::class, 'index'])->name('community.index');
     Route::post('/community/support-initiative/{id}', [CommunityController::class, 'supportInitiative'])->name('community.support-initiative');
+    Route::post('/community/vote-topic/{id}', [CommunityController::class, 'voteOnTopic'])->name('community.vote-topic');
 
     Route::get('/sessions/{id}', [SessionController::class, 'show'])->name('sessions.show');
 
@@ -80,6 +87,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     // Advertisements Routes
     Route::get('/advertisements', [MediaCenterController::class, 'showAllAdvertisements'])->name('advertisements.index');
     Route::get('/advertisements/{id}', [MediaCenterController::class, 'showAdvertisement'])->name('advertisements.show');
+
+
+    Route::get('/newListen', [NewListenSessionController::class, 'showAllNewListen'])->name('newListen.index');
+    Route::get('/newListen/{id}', [NewListenSessionController::class, 'showNewListen'])->name('newListen.show');
 
     // News Routes
     // Route::get('/news', [MediaCenterController::class, 'showAllNews'])->name('news.index');
@@ -104,6 +115,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/complaintfollow', [ComplaintController::class, 'trackIndex'])->name('complaintfollow');
     
     Route::get('/community', [ComplaintController::class, 'trackIndex'])->name('complaintfollow');
+    Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 });
 

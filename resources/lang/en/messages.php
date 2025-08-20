@@ -342,6 +342,38 @@ return [
     'suggestion_deleted_successfully' => 'Suggestion deleted successfully.',
     'yes' => 'Yes',
     'no' => 'No',
+     'actions' => 'Actions',
+    'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
+    'confirm_delete' => 'Are you sure you want to delete this session?',
+    'no_image' => 'No Image',
+    'current_photo' => 'Current Photo',
+    'leave_empty_keep_current' => 'Leave empty to keep current photo',
+
+    // Listen Sessions
+    'listen_sessions' => 'Listen Sessions',
+    'session_details' => 'Session Details',
+    'add_new_session' => 'Add New Session',
+    'add_first_session' => 'Add Your First Session',
+    'edit_session' => 'Edit Session',
+    'view_session' => 'View Session',
+    'create_session' => 'Create Session',
+    'update_session' => 'Update Session',
+    'no_sessions_found' => 'No sessions found.',
+
+    // Form Fields
+    'photo' => 'Photo',
+    'title' => 'Title',
+    'title_english' => 'Title (English)',
+    'title_arabic' => 'Title (Arabic)',
+    'description' => 'Description',
+    'description_english' => 'Description (English)',
+    'description_arabic' => 'Description (Arabic)',
+
+    // Success Messages
+    'session_created_successfully' => 'Session created successfully!',
+    'session_updated_successfully' => 'Session updated successfully!',
+    'session_deleted_successfully' => 'Session deleted successfully!',
     "" => "",
     "" => "",
     "" => "",

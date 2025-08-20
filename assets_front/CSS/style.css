@@ -100,7 +100,7 @@ select {
     display: block;
   }
   .mobile-nav.active {
-    display: flex;
+    display: flex!important;
   }
 }
 
@@ -168,13 +168,15 @@ select {
 }
 
 .slider-controls span {
-  font-size: 18px;
-  color: white;
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-  padding: 6px 12px;
-  transition: background 0.3s;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 22px;
+    padding: 6px 12px;
+    transition: background 0.3s;
+    text-align: center;
 }
 
 .slider-controls span:hover {
@@ -188,6 +190,7 @@ select {
   right: 0;
   text-align: center;
   z-index: 2;
+  display: none!important;
 }
 
 .slider-dots .dot {
@@ -273,6 +276,7 @@ select {
 h2.about-h {
   text-align: center;
    color: #065f46;
+   font-weight: bolder;
 }
 
 .about-btn:hover {
@@ -380,7 +384,7 @@ h2.about-h {
     font-size: 12px;
   }
   .sessions-grid {
-    gap: 75px;
+    gap: 75px!important;
 }
 
 .level-2::before {
@@ -388,7 +392,7 @@ h2.about-h {
 }
 
 .sessions-grid {
-    gap: 85px;
+    gap: 85px!important;
 }
 
 }
@@ -591,7 +595,7 @@ h2.about-h {
 .project-tag {
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 10px!important;
   background-color: #f3e8cd;
   color: #7a5b25;
   font-size: 12px;
@@ -678,6 +682,11 @@ h2.about-h {
   font-size: 17px;
   margin: 5px 0 8px;
   color: #000;
+  font-weight: bolder;
+}
+
+section.quick-access a {
+    text-decoration: none !important;
 }
 
 .news-content p {
@@ -896,6 +905,7 @@ h2.about-h {
   font-size: 28px;
   color: #065f46;
   margin-bottom: 15px;
+    font-weight: bolder;
 }
 
 .about-sahab-content p {
@@ -921,7 +931,7 @@ h2.about-h {
   display: block;
   font-size: 20px;
   color: #065f46;
-  font-weight: bold;
+  font-weight: bolder;
   margin-bottom: 5px;
 }
 
@@ -973,7 +983,7 @@ h2.about-h {
 
 .card h3 {
   color: #000;
-  font-weight: bold;
+  font-weight: bolder;
   margin-bottom: 10px;
 }
 
@@ -1050,7 +1060,7 @@ h2.about-h {
   content: "";
   position: absolute;
   top: -20px;
-  left: 50%;
+  left: 52%;
   transform: translateX(-50%);
   height: 20px;
   width: 2px;
@@ -1075,9 +1085,7 @@ h2.about-h {
   border-radius: 10px;
   transition: 0.3s ease;
 }
-.section-box:hover {
-  background-color: #f8f8f8;
-}
+
 .section-box i {
   font-size: 30px;
   color: #065f46;
@@ -1151,6 +1159,8 @@ h2.about-h {
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   padding: 50px;
+     max-width: 1100px;
+    margin: auto;
 }
 
 .law-card {
@@ -1275,7 +1285,6 @@ h2.about-h {
 
 
 .contact-section {
-  background-color: #fafafa;
   padding: 60px 20px;
 }
 
@@ -1374,6 +1383,7 @@ h2.about-h {
   border-radius: 6px;
   cursor: pointer;
   font-family: 'Cairo', sans-serif !important;
+  margin-left: 10px;
   
 }
 
@@ -1389,7 +1399,7 @@ h2.about-h {
 }
 
 .search-sort input, .search-sort select {
-  padding: 10px;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-family: inherit;
@@ -1436,6 +1446,7 @@ h2.about-h {
 .project-content h3 {
   font-size: 18px;
   margin-bottom: 8px;
+  font-weight: bolder;
 }
 
 .project-content p {
@@ -1755,7 +1766,7 @@ section.suggestions-section {
 
 .complaints-tabs {
   display: flex;
-  gap: 30px;
+  gap: 50px;
   list-style: none;
   padding: 30px;
 }
@@ -2253,7 +2264,7 @@ section.suggestions-section {
 .section-title {
   color: #027b54;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: bolder;
   margin-bottom: 25px!important;
 }
 
@@ -3028,6 +3039,7 @@ section.suggestions-section {
 .mutasem-community-section {
   padding: 40px 20px;
   font-family: 'Tajawal', sans-serif;
+  background-color: #f9f9f9;
 }
 
 .mutasem-container {
@@ -3036,7 +3048,7 @@ section.suggestions-section {
 }
 
 .mutasem-title {
-  font-size: 24px;
+  font-size: 27px;
   font-weight: bold;
   text-align: center;
   color: #065f46;
@@ -3053,7 +3065,7 @@ section.suggestions-section {
 }
 
 .mutasem-heading {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: bold;
   color: #065f46;
   margin-bottom: 20px;
@@ -3061,10 +3073,34 @@ section.suggestions-section {
 }
 
 .mutasem-cards-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
   justify-content: center;
 }
+
+a.support-initiative-btn {
+    text-decoration: none;
+}
+
+.btn-join {
+  background: transparent;
+  border: 2px solid #1b7b63;
+  color: #1b7b63;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-join:hover {
+  background: #1b7b63;
+  color: #fff;
+}
+
+
+.mutasem-cards-row-1 { display: flex ; gap: 20px; justify-content: center; }
 
 /* المبادرات */
 .mutasem-card {
@@ -3072,7 +3108,7 @@ section.suggestions-section {
   border: 1px solid #e1e1e1;
   padding: 20px;
   border-radius: 12px;
-  width: 320px;
+  width: 90%;
 }
 
 .mutasem-tag {
@@ -3086,7 +3122,7 @@ section.suggestions-section {
 }
 
 .mutasem-card h4 {
-  font-size: 18px;
+  font-size: 21px;
   margin-bottom: 5px;
   color: #222;
 }
@@ -3144,14 +3180,14 @@ section.suggestions-section {
 }
 
 .mutasem-status {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #fcefd7;
-  color: #a67900;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 13px;
+    position: absolute;
+    top: 9px;
+    left: 11px;
+    background: #fcefd7;
+    color: #a67900;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
 }
 
 .mutasem-status.open {
@@ -3186,7 +3222,7 @@ section.suggestions-section {
   font-weight: bold;
   cursor: pointer;
   text-align: center;
-  width: 100%;
+  width: -webkit-fill-available;
 }
 
 .mutasem-light-btn {
@@ -3400,7 +3436,7 @@ section.suggestions-section {
 }
 
 .mutasem-title {
-  font-size: 24px;
+  font-size: 27px;
   color: #065f46;
   font-weight: bold;
 }
@@ -3681,11 +3717,11 @@ section.suggestions-section {
 .mutasem-social-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   font-weight: bold;
   color: #222;
   margin-bottom: 15px;
   font-size: 16px;
+  gap: 5px;
 }
 
 .mutasem-instagram-grid {
@@ -3748,11 +3784,15 @@ input[type="checkbox"] {
 }
 
 .mutasem-orgs-title {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #111;
   margin-bottom: 20px;
   text-align: right;
+}
+
+.mutasem-orgs-grid a {
+    text-decoration: none;
 }
 
 .mutasem-orgs-grid {
@@ -3800,6 +3840,7 @@ input[type="checkbox"] {
   font-size: 15px;
   font-weight: bold;
   margin: 0 0 4px;
+  color: #000;
 }
 
 .mutasem-orgs-text p {
@@ -3884,18 +3925,12 @@ form#search-form {
   padding: 16px;
   font-weight: 500;
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
-.mutasem-faq-question::before {
-  content: "▾";
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.3s;
-}
 
-.mutasem-faq-item.active .mutasem-faq-question::before {
+.mutasem-faq-item.active {
   transform: translateY(-50%) rotate(180deg);
 }
 

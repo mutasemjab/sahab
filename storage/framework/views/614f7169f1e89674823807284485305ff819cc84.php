@@ -16,10 +16,15 @@
 
 <section class="mutasem-faq-section">
   <div class="mutasem-faq-container">
-    <div class="mutasem-faq-search">
-      <input type="text" id="faqSearch" placeholder="<?php echo e(__('front.search')); ?>" autocomplete="off">
-      <span class="mutasem-faq-search-icon">🔍</span>
-    </div>
+<div class="mutasem-faq-search" style="position: relative; width: 100%;">
+  <input type="text" id="faqSearch" placeholder="<?php echo e(__('front.search')); ?>" autocomplete="off"
+         style="padding-left: 40px; width: 100%; box-sizing: border-box;">
+  <span class="mutasem-faq-search-icon" 
+        style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888;">
+    🔍
+  </span>
+</div>
+
 
     <div class="mutasem-faq-list" id="faqList">
       <?php $__empty_1 = true; $__currentLoopData = $questions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $question): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -66,9 +71,8 @@
           📧 <?php echo e(__('front.email_support')); ?>
 
         </a>
-        <a href="#" class="mutasem-help-link">
-          💬 <?php echo e(__('front.send_message')); ?>
-
+        <a href="<?php echo e(route('contact.index')); ?>" class="mutasem-help-link">
+          💬 الدردشة المباشرة
         </a>
       </div>
     </div>

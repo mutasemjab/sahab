@@ -49,7 +49,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
     Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
     Route::get('/questions', [QuestionController::class, 'index'])->name('questions');
-    Route::get('/importantLink', [ImportantLinkController::class, 'getImportantLinks'])->name('importantLink');
+    Route::get('/importantLink', [ImportantLinkController::class, 'index'])->name('importantLink');
     Route::get('/complaints', [HomeController::class, 'getComplaints'])->name('complaints');
     Route::get('/advs', [HomeController::class, 'getAdvs'])->name('advs');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');

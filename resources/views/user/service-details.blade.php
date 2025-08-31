@@ -1,6 +1,14 @@
 @extends('layouts.front')
 
 @section('content')
+
+<style>
+  .tab-content { display: none;!important }
+  .tab-content.active { display: block;!important }
+  .tab.active { font-weight: 700; }
+</style>
+
+
 <div class="breadcrumb-bar">
   <div class="breadcrumb-container">
     <a href="{{ route('home') }}">{{ __('front.home') }}</a>
@@ -26,11 +34,11 @@
 
     <!-- العمود الرئيسي -->
     <div class="permit-content">
-      <div class="tabs">
-        <span class="tab active" onclick="showTab('steps')">{{ __('front.steps') }}</span>
-        <span class="tab" onclick="showTab('conditions')">{{ __('front.conditions') }}</span>
-        <span class="tab" onclick="showTab('documents')">{{ __('front.required_documents') }}</span>
-      </div>
+    <div class="tabs">
+      <span class="tab active" onclick="showTab(event,'steps')">{{ __('front.steps') }}</span>
+      <span class="tab" onclick="showTab(event,'conditions')">{{ __('front.conditions') }}</span>
+      <span class="tab" onclick="showTab(event,'documents')">{{ __('front.required_documents') }}</span>
+    </div>
 
       @if($service->serviceDetails && $service->serviceDetails->video)
         <!-- فيديو / صورة -->
@@ -83,12 +91,40 @@
 
     <!-- العمود الأيسر -->
     <div class="permit-sidebar">
-      <ul class="info-list">
-        <li><span>👥</span> {{ __('front.target_audience') }}: <br> <strong>{{ $service->target_audience ?? __('front.all_citizens') }}</strong></li>
-        <li><span>⏱️</span> {{ __('front.service_duration') }}: <br> <strong>{{ $service->duration_service ?? __('front.not_specified') }}</strong></li>
-        <li><span>🖥️</span> {{ __('front.service_channels') }}: <br> <strong>{{ $service->service_channel ?? __('front.online') }}</strong></li>
-        <li><span>💰</span> {{ __('front.service_cost') }}: <br> <strong>{{ $service->service_cost ?? __('front.free') }}</strong></li>
-      </ul>
+    <ul class="info-list" style="list-style:none; padding:0; margin:0; display:grid; gap:3px;">
+      <li style="display:flex; align-items:flex-start; gap:10px; font-size:15px; color:#333;">
+        <i class="fas fa-users" style="color:#065f46; font-size:18px; margin-top:2px;"></i>
+        <div>
+          {{ __('front.target_audience') }}: <br>
+          <strong>{{ $service->target_audience ?? __('front.all_citizens') }}</strong>
+        </div>
+      </li>
+      
+      <li style="display:flex; align-items:flex-start; gap:10px; font-size:15px; color:#333;">
+        <i class="fas fa-clock" style="color:#065f46; font-size:18px; margin-top:2px;"></i>
+        <div>
+          {{ __('front.service_duration') }}: <br>
+          <strong>{{ $service->duration_service ?? __('front.not_specified') }}</strong>
+        </div>
+      </li>
+      
+      <li style="display:flex; align-items:flex-start; gap:10px; font-size:15px; color:#333;">
+        <i class="fas fa-desktop" style="color:#065f46; font-size:18px; margin-top:2px;"></i>
+        <div>
+          {{ __('front.service_channels') }}: <br>
+          <strong>{{ $service->service_channel ?? __('front.online') }}</strong>
+        </div>
+      </li>
+      
+      <li style="display:flex; align-items:flex-start; gap:10px; font-size:15px; color:#333;">
+        <i class="fas fa-money-bill-wave" style="color:#065f46; font-size:18px; margin-top:2px;"></i>
+        <div>
+          {{ __('front.service_cost') }}: <br>
+          <strong>{{ $service->service_cost ?? __('front.free') }}</strong>
+        </div>
+      </li>
+    </ul>
+
 
       <div class="faq-section">
         <h4>{{ __('front.frequently_asked_questions') }}</h4>
@@ -106,26 +142,22 @@
 </div>
 
 <script>
-function showTab(tabName) {
-  // Hide all tab contents
+function showTab(evt, tabName) {
   const contents = document.querySelectorAll('.tab-content');
-  contents.forEach(content => {
-    content.classList.remove('active');
-  });
-  
-  // Remove active class from all tabs
+  contents.forEach(c => c.classList.remove('active'));
+
   const tabs = document.querySelectorAll('.tab');
-  tabs.forEach(tab => {
-    tab.classList.remove('active');
-  });
-  
-  // Show selected tab content
-  document.getElementById(tabName + '-content').classList.add('active');
-  
-  // Add active class to clicked tab
-  event.target.classList.add('active');
+  tabs.forEach(t => t.classList.remove('active'));
+
+  const target = document.getElementById(tabName + '-content');
+  if (target) target.classList.add('active');
+
+  if (evt && evt.currentTarget) {
+    evt.currentTarget.classList.add('active');
+  }
 }
 </script>
+
 
 
 @endsection

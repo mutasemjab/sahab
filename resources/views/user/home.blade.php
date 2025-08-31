@@ -55,23 +55,7 @@
          <div class="calendar-grid" id="calendar-grid"></div>
      </section>
 
-     <section class="services-section">
-         <h2 class="section-title">{{ __('front.our_services') }}</h2>
 
-         <div class="services-grid">
-             @foreach ($services as $service)
-                 <div class="service-card">
-                     <div class="service-icon">
-                         <i class="{{ $service->icon }}"></i>
-                     </div>
-                     <h3>{{ $service->{'title_' . $locale} }}</h3>
-                     <p>{!! $service->{'description_' . $locale} !!}</p>
-                 </div>
-             @endforeach
-         </div>
-
-         <a href="{{ route('services') }}" class="services-btn">{{ __('front.learn_more') }}</a>
-     </section>
 
      <section class="sessions-section">
          <h2 class="section-title">{{ __('front.upcoming_public_sessions') }}</h2>

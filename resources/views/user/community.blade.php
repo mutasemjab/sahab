@@ -42,9 +42,11 @@
                                         </button>
                                     @endif
                                 @else
-                                    <button class="support-initiative-btn login-to-support-btn" data-id="{{ $initiative->id }}">
-                                        {{ __('front.login_to_support') }}
-                                    </button>
+                                <button class="support-initiative-btn login-to-support-btn" data-id="{{ $initiative->id }}"
+                                    style="padding:8px 20px; border:2px solid #065f46; background:#fff; color:#065f46; font-size:16px; font-family:'Tajawal', sans-serif; border-radius:8px; cursor:pointer; transition:0.3s;">
+                                    {{ __('front.login_to_support') }}
+                                </button>
+
                                 @endauth
                             </div>
 

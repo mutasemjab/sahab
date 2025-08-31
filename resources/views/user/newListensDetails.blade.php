@@ -11,8 +11,13 @@
 </div>
 
 
- <div class="project-content">
-    <h3>{{ $newListen->title }}</h3>
-    <p>{{ $newListen->description }}</p>
+<div class="project-content" style="padding:40px; min-height:400px; border-radius:16px;width: 50%; line-height:1.8; color:#065f46; text-align:right;">
+    <h3 style="font-size:28px; margin-bottom:20px; color:#065f46;">
+        {{ $newListen->title }}
+    </h3>
+    <p style="margin-bottom:16px; font-size:18px;">
+        {{ $newListen->description }}
+    </p>
 </div>
+
 @endsection

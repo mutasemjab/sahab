@@ -69,20 +69,29 @@
 </div>
 
 
-<div class="custom-dropdown">
-    <button class="dropdown-toggle">
-        <i class="fas fa-globe"></i> {{ __('Language') }}
-    </button>
-    <ul class="dropdown-menu">
-        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-            <li>
-                <a class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                    {{ $properties['native'] }}
-                </a>
-            </li>
-        @endforeach
-    </ul>
+<div class="custom-dropdown" id="langDropdown">
+  <button class="dropdown-toggle"
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          onclick="toggleLangMenu(event)">
+    <i class="fas fa-globe"></i> {{ __('Language') }}
+  </button>
+
+  <ul class="dropdown-menu"
+      id="langMenu"
+      style="top:100%;list-style:none; margin-top:0; /* إزالة الفجوة */">
+    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+      <li>
+        <a class="dropdown-item" hreflang="{{ $localeCode }}"
+           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+          {{ $properties['native'] }}
+        </a>
+      </li>
+    @endforeach
+  </ul>
 </div>
+
 
 
     <a href="{{route('community.index')}}"><i class="fas fa-universal-access"></i></a>
@@ -371,4 +380,26 @@ document.addEventListener('click',e=>{
 });
 </script>
 
+<script>
+function toggleLangMenu(e){
+  e.preventDefault();
+  e.stopPropagation();
+  const dd = document.getElementById('langDropdown');
+  const menu = document.getElementById('langMenu');
+  const open = menu.style.display === 'block';
+  menu.style.display = open ? '' : 'block';
+  e.currentTarget.setAttribute('aria-expanded', open ? 'false' : 'true');
+}
+
+// اغلاق عند الضغط خارج القائمة
+document.addEventListener('click', function(e){
+  const dd = document.getElementById('langDropdown');
+  const menu = document.getElementById('langMenu');
+  if(!dd.contains(e.target)){
+    menu.style.display = '';
+    const btn = dd.querySelector('.dropdown-toggle');
+    if(btn) btn.setAttribute('aria-expanded','false');
+  }
+});
+</script>
 

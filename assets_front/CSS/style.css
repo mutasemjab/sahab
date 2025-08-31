@@ -5,13 +5,6 @@ body {
   background: #fff;
 }
 
-button {
-    font-family: 'Cairo', sans-serif !important;
-}
-
-input {
-    font-family: 'Cairo', sans-serif !important;
-}
 
 .header-container {
   display: flex;
@@ -2544,6 +2537,7 @@ section.suggestions-section {
   font-size: 14px;
   display: block;
   margin-bottom: 8px;
+  text-decoration: none;
 }
 
 .download-btn {
@@ -2553,6 +2547,7 @@ section.suggestions-section {
   padding: 8px 14px;
   border-radius: 5px;
   cursor: pointer;
+  color: #000 !important;
 }
 
 /* العمود الرئيسي */
@@ -3015,11 +3010,10 @@ section.suggestions-section {
 .project-video-box {
   background-color: #f2f2f2;
   border-radius: 12px;
-  height: 220px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 58px;
 }
 
 .video-placeholder {
@@ -3226,15 +3220,16 @@ a.support-initiative-btn {
 }
 
 .mutasem-light-btn {
-  background: #f9f9f9;
-  color: #065f46;
-  border: 1px solid #065f46;
+    background: #e5e5e5;
+    color: #545454;
+    border: none;
 }
 
 .mutasem-primary-btn {
   background: #065f46;
   color: #fff;
   border: none;
+  text-decoration: none;
 }
 
 /* التصويت */
@@ -3929,10 +3924,6 @@ form#search-form {
   justify-content: space-between;
 }
 
-
-.mutasem-faq-item.active {
-  transform: translateY(-50%) rotate(180deg);
-}
 
 .mutasem-faq-answer {
   display: none;

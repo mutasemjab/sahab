@@ -15,18 +15,7 @@
     <p class="section-subtitle">
       {{ __('front.complaint_description') }}
     </p>
-    <div class="complaint-buttons">
-      <a href="#complaint-form" class="submit-btn" onclick="scrollToForm()">
-        <i class="icon">+</i>
-        {{ __('front.submit_complaint') }}
-      </a>
-      @if($setting && $setting->video)
-        <a href="{{ $setting->video }}" target="_blank" class="video-btn">
-          <i class="icon">◀</i>
-          {{ __('front.watch_video') }}
-        </a>
-      @endif
-    </div>
+ 
   </div>
 </section>
 

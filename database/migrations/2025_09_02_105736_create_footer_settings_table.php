@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('abouts', function (Blueprint $table) {
+        Schema::create('footer_settings', function (Blueprint $table) {
             $table->id();
-            $table->text('description_en');
-            $table->text('description_ar');
-            $table->string('photo');
-            $table->string('photo_of_organizational_structure');
-
+            $table->string('section'); // 'about_municipality' or 'quick_links'
+            $table->string('title');
+            $table->string('route_name');
+            $table->boolean('is_active')->default(true);
+            $table->integer('order')->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abouts');
+        Schema::dropIfExists('footer_settings');
     }
 };

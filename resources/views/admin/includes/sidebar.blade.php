@@ -30,11 +30,7 @@
                 {{-- Content Management Section --}}
                 <li class="nav-header">{{ __('messages.content_management') }}</li>
 
-                @if (
-                    $user->can('banner-table') ||
-                        $user->can('banner-add') ||
-                        $user->can('banner-edit') ||
-                        $user->can('banner-delete'))
+                @if ($user->can('banner-table') || $user->can('banner-add') || $user->can('banner-edit') || $user->can('banner-delete'))
                     <li class="nav-item">
                         <a href="{{ route('banners.index') }}" class="nav-link">
                             <i class="fas fa-images nav-icon"></i>
@@ -84,13 +80,8 @@
                         <p> {{ __('messages.Advs') }} </p>
                     </a>
                 </li>
-               
-                <li class="nav-item">
-                    <a href="{{ route('news.index') }}" class="nav-link">
-                        <i class="fas fa-bullhorn nav-icon"></i>
-                        <p> {{ __('messages.news') }} </p>
-                    </a>
-                </li>
+
+
 
                 <li class="nav-item">
                     <a href="{{ route('questions.index') }}" class="nav-link">
@@ -136,7 +127,7 @@
                         <p> {{ __('messages.MunicipalCouncils') }} </p>
                     </a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a href="{{ route('new-listen-sessions.index') }}" class="nav-link">
                         <i class="fas fa-building nav-icon"></i>
@@ -145,7 +136,7 @@
                 </li>
 
 
-                 <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="fas fa-users nav-icon"></i>
                         <p>
@@ -184,8 +175,8 @@
                 {{-- Legal & Tenders Section --}}
                 <li class="nav-header">{{ __('messages.legal_tenders') }}</li>
 
-              
-              
+
+
                 <li class="nav-item">
                     <a href="{{ route('laws.index') }}" class="nav-link">
                         <i class="fas fa-gavel nav-icon"></i>
@@ -206,76 +197,76 @@
                         <p> {{ __('messages.TenderDetails') }} </p>
                     </a>
                 </li>
-
-                {{-- Existing Business Section --}}
-                {{-- <li class="nav-header">{{ __('messages.business_management') }}</li> --}}
-
               
+                <li class="nav-item">
+                    <a href="{{ route('community-initiatives.index') }}" class="nav-link">
+                        <i class="fas fa-list-alt nav-icon"></i>
+                        <p> {{ __('messages.community_initiatives_management') }} </p>
+                    </a>
+                </li>
 
-                    {{-- @if (
-                        $user->can('customer-table') ||
-                            $user->can('customer-add') ||
-                            $user->can('customer-edit') ||
-                            $user->can('customer-delete'))
-                        <li class="nav-item">
-                            <a href="{{ route('users.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> {{ __('messages.Customers') }} </p>
-                            </a>
-                        </li>
-                    @endif --}}
 
-                   
 
-                
-                
-                 
 
-                    {{-- System Configuration --}}
-                    <li class="nav-header">{{ __('messages.system_configuration') }}</li>
 
+                <li class="nav-item">
+                    <a href="{{ route('pages.index') }}" class="nav-link">
+                        <i class="fas fa-bullhorn nav-icon"></i>
+                        <p> {{ __('messages.pages_management') }} </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('footer-settings.index') }}" class="nav-link">
+                        <i class="fas fa-bullhorn nav-icon"></i>
+                        <p> {{ __('messages.footer_settings') }} </p>
+                    </a>
+                </li>
+
+                {{-- System Configuration --}}
+                <li class="nav-header">{{ __('messages.system_configuration') }}</li>
+
+                <li class="nav-item">
+                    <a href="{{ route('settings.index') }}" class="nav-link">
+                        <i class="fas fa-cog nav-icon"></i>
+                        <p>{{ __('messages.Settings') }} </p>
+                    </a>
+                </li>
+
+
+
+                {{-- User Management --}}
+                <li class="nav-header">{{ __('messages.user_management') }}</li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.login.edit', auth()->user()->id) }}" class="nav-link">
+                        <i class="fas fa-user nav-icon"></i>
+                        <p>{{ __('messages.Admin_account') }} </p>
+                    </a>
+                </li>
+
+                @if ($user->can('role-table') || $user->can('role-add') || $user->can('role-edit') || $user->can('role-delete'))
                     <li class="nav-item">
-                        <a href="{{ route('settings.index') }}" class="nav-link">
-                            <i class="fas fa-cog nav-icon"></i>
-                            <p>{{ __('messages.Settings') }} </p>
+                        <a href="{{ route('admin.role.index') }}" class="nav-link">
+                            <i class="fas fa-user-shield nav-icon"></i>
+                            <span>{{ __('messages.Roles') }} </span>
                         </a>
                     </li>
+                @endif
 
-                  
-
-                    {{-- User Management --}}
-                    <li class="nav-header">{{ __('messages.user_management') }}</li>
-
+                @if (
+                    $user->can('employee-table') ||
+                        $user->can('employee-add') ||
+                        $user->can('employee-edit') ||
+                        $user->can('employee-delete'))
                     <li class="nav-item">
-                        <a href="{{ route('admin.login.edit', auth()->user()->id) }}" class="nav-link">
-                            <i class="fas fa-user nav-icon"></i>
-                            <p>{{ __('messages.Admin_account') }} </p>
+                        <a href="{{ route('admin.employee.index') }}" class="nav-link">
+                            <i class="fas fa-users nav-icon"></i>
+                            <span> {{ __('messages.Employee') }} </span>
                         </a>
                     </li>
+                @endif
 
-                    @if ($user->can('role-table') || $user->can('role-add') || $user->can('role-edit') || $user->can('role-delete'))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.role.index') }}" class="nav-link">
-                                <i class="fas fa-user-shield nav-icon"></i>
-                                <span>{{ __('messages.Roles') }} </span>
-                            </a>
-                        </li>
-                    @endif
 
-                    @if (
-                        $user->can('employee-table') ||
-                            $user->can('employee-add') ||
-                            $user->can('employee-edit') ||
-                            $user->can('employee-delete'))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.employee.index') }}" class="nav-link">
-                                <i class="fas fa-users nav-icon"></i>
-                                <span> {{ __('messages.Employee') }} </span>
-                            </a>
-                        </li>
-                    @endif
-
-             
 
             </ul>
         </nav>

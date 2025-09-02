@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\PublicSession;
 use App\Models\Service;
 use App\Models\Projects;
+use App\Models\Tender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,6 +18,7 @@ class HomeController extends Controller
     public function index()
     {
        $about = About::first();
+       $tenders = Tender::limit(3)->orderBy('date_publish','asc')->get();
        $banners = Banner::get();
        $services = Service::get();
        $publicSessions = PublicSession::orderBy('date_of_event','asc')->get();
@@ -33,7 +35,7 @@ class HomeController extends Controller
         });
     
 
-        return view('user.home',compact('events','banners','about','services','publicSessions','projects','advs','locale'));
+        return view('user.home',compact('events','banners','about','services','publicSessions','projects','advs','locale','tenders'));
     }
     
     public function getAboutUs()

@@ -65,14 +65,7 @@
 
 <section class="organization-structure">
   <h2>{{ __('front.organization_structure') }}</h2>
-  <div class="org-chart">
-    <div class="level-1">{{ __('front.president') }}</div>
-    <div class="level-2">
-      <div class="box">{{ __('front.administrative_affairs') }}</div>
-      <div class="box">{{ __('front.technical_affairs') }}</div>
-      <div class="box">{{ __('front.financial_affairs') }}</div>
-    </div>
-  </div>
+    <img src="{{ asset('assets/admin/uploads/' . $about->photo_of_organizational_structure) }}">
 </section>
 
 

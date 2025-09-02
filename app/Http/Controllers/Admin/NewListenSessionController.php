@@ -25,11 +25,12 @@ class NewListenSessionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'title_en' => 'required|string|max:255',
             'title_ar' => 'required|string|max:255',
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
+            'youtube_link' => 'required|string',
         ]);
 
         $photoPath = null;
@@ -38,9 +39,10 @@ class NewListenSessionController extends Controller
         }
 
         NewListenSession::create([
-            'photo' => $photoPath,
+            'photo' => $photoPath ?? null,
             'title_en' => $request->title_en,
             'title_ar' => $request->title_ar,
+            'youtube_link' => $request->youtube_link,
             'description_en' => $request->description_en,
             'description_ar' => $request->description_ar,
         ]);
@@ -65,6 +67,7 @@ class NewListenSessionController extends Controller
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'title_en' => 'required|string|max:255',
             'title_ar' => 'required|string|max:255',
+            'youtube_link' => 'required|string',
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
         ]);
@@ -72,6 +75,7 @@ class NewListenSessionController extends Controller
         $updateData = [
             'title_en' => $request->title_en,
             'title_ar' => $request->title_ar,
+            'youtube_link' => $request->youtube_link,
             'description_en' => $request->description_en,
             'description_ar' => $request->description_ar,
         ];
@@ -88,10 +92,7 @@ class NewListenSessionController extends Controller
 
     public function destroy(NewListenSession $newListenSession)
     {
-        // Delete photo if exists
-        if ($newListenSession->photo) {
-            Storage::disk('public')->delete($newListenSession->photo);
-        }
+        
 
         $newListenSession->delete();
 

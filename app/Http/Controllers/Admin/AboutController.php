@@ -27,14 +27,17 @@ class AboutController extends Controller
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo_of_organizational_structure' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $photoPath = uploadImage('assets/admin/uploads', $request->photo);
+        $photoStructurePath = uploadImage('assets/admin/uploads', $request->photo_of_organizational_structure);
 
         DB::table('abouts')->insert([
             'description_en' => $request->description_en,
             'description_ar' => $request->description_ar,
             'photo' => $photoPath,
+            'photo_of_organizational_structure' => $photoStructurePath,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -57,6 +60,7 @@ class AboutController extends Controller
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo_of_organizational_structure' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $about = DB::table('abouts')->where('id', $id)->first();
@@ -72,6 +76,10 @@ class AboutController extends Controller
 
         if ($request->hasFile('photo')) {
             $updateData['photo'] = uploadImage('assets/admin/uploads', $request->photo);
+        }
+
+        if ($request->hasFile('photo_of_organizational_structure')) {
+            $updateData['photo_of_organizational_structure'] = uploadImage('assets/admin/uploads', $request->photo_of_organizational_structure);
         }
 
         DB::table('abouts')->where('id', $id)->update($updateData);

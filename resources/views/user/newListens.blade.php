@@ -34,11 +34,17 @@
     </div>
     @empty
     <div class="no-data">
-      <p>{{ __('front.listen_sessions') }}</p>
+      <p>{{ __('front.no_listen_sessions') }}</p>
     </div>
     @endforelse
   </div>
-</section>
 
+  {{-- Pagination Links --}}
+  @if($newListens->hasPages())
+    <div class="pagination-wrapper" style="margin-top: 40px; text-align: center;">
+      {{ $newListens->links() }}
+    </div>
+  @endif
+</section>
 
 @endsection

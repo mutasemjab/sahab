@@ -20,11 +20,12 @@ return new class extends Migration
             $table->text('description_en');
             $table->text('description_ar');
             $table->text('date_finish')->nullable();
+            $table->tinyInteger('from_admin_or_user')->default(1); // 1 from admin // 2 from user
           // when user create 
-            $table->string('name');
-            $table->string('phone');
-            $table->string('age');
-            $table->json('photo');
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('age')->nullable();
+            $table->json('photo')->nullable();
             $table->tinyInteger('gender')->default(1); // 1 male // 2 female
             $table->tinyInteger('hide_information')->default(1); // 1 yes // 2 no
             $table->tinyInteger('status')->default(1); // 1 pending // 2 work on it // 3 Done

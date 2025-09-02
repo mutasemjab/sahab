@@ -36,6 +36,18 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="title_en" class="form-label">{{ __('messages.youtube_link') }}</label>
+                            <input type="text" class="form-control @error('youtube_link') is-invalid @enderror" 
+                                   id="youtube_link" name="youtube_link" 
+                                   value="{{ old('youtube_link', $newListenSession->youtube_link) }}" required>
+                            @error('youtube_link')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    
+                        <div class="mb-3">
                             <label for="title_en" class="form-label">{{ __('messages.title_english') }}</label>
                             <input type="text" class="form-control @error('title_en') is-invalid @enderror" 
                                    id="title_en" name="title_en" 

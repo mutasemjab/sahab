@@ -85,9 +85,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/media-center', [MediaCenterController::class, 'index'])->name('media.center');
 
     // Advertisements Routes
-    Route::get('/advertisements', [MediaCenterController::class, 'showAllAdvertisements'])->name('advertisements.index');
-    Route::get('/advertisements/{id}', [MediaCenterController::class, 'showAdvertisement'])->name('advertisements.show');
-
+    Route::get('/advertisement/{id}', [MediaCenterController::class, 'show'])->name('advertisement.show');
 
     Route::get('/newListen', [NewListenSessionController::class, 'showAllNewListen'])->name('newListen.index');
     Route::get('/newListen/{id}', [NewListenSessionController::class, 'showNewListen'])->name('newListen.show');
@@ -116,6 +114,24 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     
     Route::get('/community', [ComplaintController::class, 'trackIndex'])->name('complaintfollow');
     Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+
+    // Frontend Page Routes
+    Route::get('/terms-and-conditions', function () {
+        $page = \App\Models\Page::where('type', 1)->first();
+        if (!$page) {
+          return view('user.not-found');
+        }
+        return view('user.page', compact('page'));
+    })->name('front.page.terms');
+
+    Route::get('/privacy-policy', function () {
+        $page = \App\Models\Page::where('type', 2)->first();
+        if (!$page) {
+          return view('user.not-found');
+        }
+        return view('user.page', compact('page'));
+    })->name('front.page.privacy');
+
 
 });
 

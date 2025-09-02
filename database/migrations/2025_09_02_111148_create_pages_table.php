@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('abouts', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('type'); // 1 terms and condition // 2 privacy policy 
+            $table->string('title_en'); 
+            $table->string('title_ar'); 
             $table->text('description_en');
-            $table->text('description_ar');
-            $table->string('photo');
-            $table->string('photo_of_organizational_structure');
-
+            $table->text('description_ar'); 
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abouts');
+        Schema::dropIfExists('pages');
     }
 };

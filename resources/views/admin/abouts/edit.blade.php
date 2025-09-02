@@ -53,6 +53,21 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
+
+                  <div class="mb-3">
+                <label for="photo" class="form-label">{{ __('messages.photo_of_organizational_structure') }}</label>
+                @if($about->photo_of_organizational_structure)
+                    <div class="mb-2">
+                        <img src="{{ asset("assets/admin/uploads/" . $about->photo_of_organizational_structure) }}" alt="Current photo_of_organizational_structure" class="img-thumbnail" style="max-height: 200px;">
+                    </div>
+                @endif
+                <input type="file" class="form-control @error('photo_of_organizational_structure') is-invalid @enderror" 
+                       id="photo_of_organizational_structure" name="photo_of_organizational_structure" accept="image/*">
+                @error('photo_of_organizational_structure')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
             
             <div class="d-flex justify-content-end">
                 <a href="{{ route('abouts.index') }}" class="btn btn-secondary me-2">

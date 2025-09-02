@@ -18,6 +18,9 @@
     <a href="{{ route('services') }}" class="{{ request()->routeIs('services') ? 'active' : '' }}">
         {{ __('front.services') }}
     </a>
+    <a href="{{ route('wbsiteTenders.index') }}" class="{{ request()->routeIs('wbsiteTenders.index') ? 'active' : '' }}">
+        {{ __('front.Tenders') }}
+    </a>
     
     <div class="dropdown">
         <a href="{{ route('community.index') }}" class="{{ request()->routeIs('community.index','suggestion') ? 'active' : '' }}">

@@ -11,13 +11,15 @@ class NewListenSessionController extends Controller
 {
     public function showAllNewListen()
     {
-        $newListens = NewListenSession::get();
+        // Add pagination - 6 items per page
+        $newListens = NewListenSession::orderBy('created_at', 'desc')
+                                     ->paginate(6);
         return view('user.newListens', compact('newListens'));
     }
-    
+         
     public function showNewListen($id)
     {
-        $newListen = NewListenSession::where('id',$id)->first();
+        $newListen = NewListenSession::findOrFail($id);
         return view('user.newListensDetails', compact('newListen'));
     }
 

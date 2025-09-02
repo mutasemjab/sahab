@@ -30,7 +30,8 @@
                                 <h4 style="margin:0;">
                                     {{ app()->getLocale() == 'ar' ? $initiative->title_ar : $initiative->title_en }}
                                 </h4>
-
+                                
+                                @if ($initiative->from_admin_or_user == 1)
                                 @auth
                                     @if ($initiative->isSupportedByUser(Auth::id()))
                                         <button class="support-initiative-btn supported" disabled>
@@ -46,8 +47,9 @@
                                     style="padding:8px 20px; border:2px solid #065f46; background:#fff; color:#065f46; font-size:16px; font-family:'Tajawal', sans-serif; border-radius:8px; cursor:pointer; transition:0.3s;">
                                     {{ __('front.login_to_support') }}
                                 </button>
-
                                 @endauth
+                                @endif
+
                             </div>
 
                             <p>{{ Str::limit(app()->getLocale() == 'ar' ? $initiative->description_ar : $initiative->description_en, 100) }}
@@ -84,7 +86,8 @@
                         </div>
                     @endforelse
                 </div>
-                <button class="mutasem-add-btn">+ {{ __('front.start_initiative') }}</button>
+               <a href="{{route('suggestions.index')}}"> <button class="mutasem-add-btn">+ {{ __('front.start_initiative') }}</button> </a>
+           
             </div>
 
             <!-- الجلسات العامة القادمة -->
@@ -135,7 +138,7 @@
             </div>
 
             <!-- التصويت على مواضيع النقاش -->
-            <div class="mutasem-block">
+            {{-- <div class="mutasem-block">
                 <h3 class="mutasem-heading">{{ __('front.vote_on_discussion_topics') }}</h3>
                 <div class="mutasem-cards-row">
                     @forelse($topicDiscussions as $topic)
@@ -178,7 +181,7 @@
                         </div>
                     @endforelse
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
@@ -197,7 +200,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone">{{ __('front.phone_number') }}</label>
+                    <label for="phone">{{ __('front.phone') }}</label>
                     <input type="tel" id="phone" name="phone" required>
                 </div>
                 

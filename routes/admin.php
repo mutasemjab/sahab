@@ -7,10 +7,12 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CommunityInitiativeController;
 use App\Http\Controllers\Admin\ComplaintController;
 use App\Http\Controllers\Admin\CompleteAboutController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\FooterSettingController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ImportantLinkController;
 use App\Http\Controllers\Admin\LawController;
@@ -28,6 +30,7 @@ use App\Http\Controllers\Admin\TenderDetailController;
 use App\Http\Controllers\Admin\TopicDiscussionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\NewListenSessionController;
+use App\Http\Controllers\Admin\PageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Spatie\Permission\Models\Permission;
 /*
@@ -104,6 +107,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('galleries', GalleryController::class);
         Route::resource('important-links', ImportantLinkController::class);
         Route::resource('adminComplaints', ComplaintController::class);
+        Route::resource('pages', PageController::class);
+        Route::resource('community-initiatives',CommunityInitiativeController::class);
 
         Route::get('services/{serviceId}/details', [ServiceController::class, 'showDetails'])->name('services.details');
         Route::get('services/{serviceId}/details/create', [ServiceController::class, 'createDetails'])->name('services.details.create');
@@ -111,7 +116,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::get('services/{serviceId}/details/{detailId}/edit', [ServiceController::class, 'editDetails'])->name('services.details.edit');
         Route::put('services/{serviceId}/details/{detailId}', [ServiceController::class, 'updateDetails'])->name('services.details.update');
         Route::delete('services/{serviceId}/details/{detailId}', [ServiceController::class, 'destroyDetails'])->name('services.details.destroy');
-        
+
+        Route::get('/footer-settings', [FooterSettingController::class, 'index'])
+            ->name('footer-settings.index');
+        Route::put('/footer-settings', [FooterSettingController::class, 'update'])
+            ->name('footer-settings.update');
     });
 });
 

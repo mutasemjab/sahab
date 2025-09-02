@@ -1,22 +1,44 @@
 <footer class="main-footer">
     <div class="footer-top">
+        {{-- About Municipality Section --}}
+        @php
+            $aboutLinks = \App\Models\FooterSetting::where('section', 'about_municipality')
+                                                  ->where('is_active', true)
+                                                  ->orderBy('order')
+                                                  ->get();
+        @endphp
+        
+        @if($aboutLinks->count() > 0)
         <div class="footer-col">
             <h3>{{ __('front.about_municipality') }}</h3>
             <ul>
-                <li><a href="{{ route('about') }}">{{ __('front.about_us') }}</a></li>
-                <li><a href="{{ route('projects') }}">{{ __('front.projects') }}</a></li>
-                <li><a href="{{ route('services') }}">{{ __('front.services') }}</a></li>
+                @foreach($aboutLinks as $link)
+                    <li><a href="{{ route($link->route_name) }}">{{ __($link->title) }}</a></li>
+                @endforeach
             </ul>
         </div>
+        @endif
 
+        {{-- Quick Links Section --}}
+        @php
+            $quickLinks = \App\Models\FooterSetting::where('section', 'quick_links')
+                                                   ->where('is_active', true)
+                                                   ->orderBy('order')
+                                                   ->get();
+        @endphp
+        
+        @if($quickLinks->count() > 0)
         <div class="footer-col">
             <h3>{{ __('front.quick_links') }}</h3>
             <ul>
-                <li><a href="{{ route('importantLinks.index') }}">{{ __('front.important_links') }}</a></li>
-                <li><a href="{{ route('questions') }}">{{ __('front.faq') }}</a></li>
+                @foreach($quickLinks as $link)
+                    <li><a href="{{ route($link->route_name) }}">{{ __($link->title) }}</a></li>
+                @endforeach
             </ul>
         </div>
+        @endif
 
+        {{-- Contact Section --}}
         <div class="footer-col">
             <h3>{{ __('front.contact_us') }}</h3>
             <p><i class="fas fa-phone-alt"></i> {{ $setting->phone }}</p>
@@ -28,6 +50,7 @@
             </div>
         </div>
 
+        {{-- Newsletter Section --}}
         <div class="footer-col newsletter">
             <h3>{{ __('front.newsletter') }}</h3>
             <form id="newsletter-form" class="newsletter-form">

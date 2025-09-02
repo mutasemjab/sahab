@@ -55,7 +55,34 @@
          <div class="calendar-grid" id="calendar-grid"></div>
      </section>
 
+     {{-- Tenders --}}
+        <section class="projects-section">
+         <h2 class="section-title">{{ $locale == 'ar' ? 'العطاءات' : 'Tenders' }}</h2>
 
+         <div class="projects-grid">
+             @foreach ($tenders as $tender)
+                 <div class="project-card">
+                     <div class="project-image">
+                         <img src="{{ asset('assets/admin/uploads/' . $tender->photo) }}"
+                             alt="{{ $tender->{'title_' . $locale} }}">
+                       
+                     </div>
+                     <div class="project-content">
+                         <h3>{{ $tender->{'title_' . $locale} }}</h3>
+                         <p>{!! $tender->{'description_' . $locale} !!}</p>
+                         @if ($tender->date_publish)
+                             <p class="start-date">{{ $locale == 'ar' ? ' تاريخ النشر:' : 'Publish from:' }}
+                                 {{ $tender->date_publish }}</p>
+                         @endif
+                         <a href="{{route('wbsiteTenders.show',$tender->id)}}" class="project-link">
+                             {{ $locale == 'ar' ? 'اعرف المزيد' : 'Learn More' }}
+                             <i class="fas fa-arrow-left"></i>
+                             </a>
+                     </div>
+                 </div>
+             @endforeach
+         </div>
+     </section>
 
      <section class="sessions-section">
          <h2 class="section-title">{{ __('front.upcoming_public_sessions') }}</h2>

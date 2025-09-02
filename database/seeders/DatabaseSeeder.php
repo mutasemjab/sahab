@@ -35,7 +35,9 @@ class DatabaseSeeder extends Seeder
             TenderDetailSeeder::class,
             CommunityInitiativeSeeder::class,
             ImportantLinkSeeder::class,
-            NewListenSessionSeeder::class
+            NewListenSessionSeeder::class,
+            FooterSettingSeeder::class,
+
         ]);
     }
 }

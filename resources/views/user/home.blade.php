@@ -183,7 +183,7 @@
                          <span class="news-date"> {{ \Carbon\Carbon::parse($session->date_of_adv)->locale('ar')->translatedFormat('j F Y') }}</span>
                          <h3>{{ $adv->{'title_' . $locale} }}</h3>
                          <p>{!! Str::limit($adv->{'description_' . $locale}, 60) !!}...</p>
-                         <a href="{{ route('advertisement.show', $advertisement->id) }}" class="news-link">
+                         <a href="{{ route('advertisement.show', $adv->id) }}" class="news-link">
                              {{ $locale == 'ar' ? 'اقرأ المزيد' : 'Read More' }}
                              <i class="fas fa-arrow-left"></i>
                              </a>

@@ -1,0 +1,1 @@
+<?php echo $__env->yieldContent('content'); ?><?php /**PATH C:\xampp\htdocs\sahab\resources\views/user/includes/content.blade.php ENDPATH**/ ?>

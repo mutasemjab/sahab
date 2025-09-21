@@ -86,7 +86,7 @@
                 <label for="logo" class="form-label">{{ __('messages.logo') }}</label>
                 @if($setting->logo)
                     <div class="mb-2">
-                        <img src="{{ asset($setting->logo) }}" alt="Current Logo" class="img-thumbnail" style="max-height: 200px;">
+                        <img src="{{ asset('assets/admin/uploads/'.$setting->logo) }}" alt="Current Logo" class="img-thumbnail" style="max-height: 200px;">
                     </div>
                 @endif
                 <input type="file" class="form-control @error('logo') is-invalid @enderror" 

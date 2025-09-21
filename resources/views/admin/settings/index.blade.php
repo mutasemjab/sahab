@@ -31,7 +31,7 @@
                             <td>{{ $setting->id }}</td>
                             <td>
                                 @if($setting->logo)
-                                    <img src="{{ asset($setting->logo) }}" alt="Logo" style="width: 50px; height: 50px; object-fit: cover;">
+                                    <img src="{{ asset('assets/admin/uploads/'.$setting->logo) }}" alt="Logo" style="width: 50px; height: 50px; object-fit: cover;">
                                 @endif
                             </td>
                             <td>{{ $setting->phone }}</td>

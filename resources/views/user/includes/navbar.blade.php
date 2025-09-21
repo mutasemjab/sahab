@@ -1,6 +1,6 @@
 <header class="header-container">
     <div class="header-logo">
-        <img src="{{ asset('assets/admin/uploads/' . $setting->photo) }}" alt="{{ __('front.sahab_logo_alt') }}">
+        <img src="{{ asset('assets/admin/uploads/' . $setting->logo) }}" alt="{{ __('front.sahab_logo_alt') }}">
     </div>
 
     <div class="header-menu">

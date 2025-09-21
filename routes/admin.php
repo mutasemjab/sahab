@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FooterSettingController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\IconHeaderController;
 use App\Http\Controllers\Admin\ImportantLinkController;
 use App\Http\Controllers\Admin\LawController;
 use App\Http\Controllers\Admin\MunicipalCouncilController;
@@ -109,6 +110,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('adminComplaints', ComplaintController::class);
         Route::resource('pages', PageController::class);
         Route::resource('community-initiatives',CommunityInitiativeController::class);
+        Route::resource('icon_headers', IconHeaderController::class);
 
         Route::get('services/{serviceId}/details', [ServiceController::class, 'showDetails'])->name('services.details');
         Route::get('services/{serviceId}/details/create', [ServiceController::class, 'createDetails'])->name('services.details.create');

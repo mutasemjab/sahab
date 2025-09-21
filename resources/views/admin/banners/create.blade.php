@@ -71,7 +71,27 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
+                 <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="in_top" class="form-label">{{ __('messages.in_top') }}</label>
+                        <select class="form-control @error('in_top') is-invalid @enderror" 
+                                id="in_top" name="in_top" required>
+                            <option value="1" {{ old('in_top', 1) == 1 ? 'selected' : '' }}>
+                                {{ __('messages.yes') }}
+                            </option>
+                            <option value="2" {{ old('in_top') == 2 ? 'selected' : '' }}>
+                                {{ __('messages.no') }}
+                            </option>
+                        </select>
+                        @error('in_top')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
             
+
+
             <div class="d-flex justify-content-end">
                 <a href="{{ route('banners.index') }}" class="btn btn-secondary me-2">
                     {{ __('messages.cancel') }}

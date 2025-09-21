@@ -89,21 +89,21 @@
           {{-- Facebook --}}
           @if($setting && $setting->facebook)
             <a href="{{ $setting->facebook }}" target="_blank" class="social-icon facebook" style="display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: #1877F2; color: white; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; font-size: 18px;">
-              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-facebook-f" style="color: white; margin-left: 0px;"></i>
             </a>
           @endif
 
           {{-- Instagram --}}
           @if($setting && $setting->instagram)
             <a href="{{ $setting->instagram }}" target="_blank" class="social-icon instagram" style="display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: white; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; font-size: 18px;">
-              <i class="fab fa-instagram"></i>
+              <i class="fab fa-instagram" style="color: white; margin-left: 0px;"></i>
             </a>
           @endif
 
           {{-- Twitter/X --}}
           @if($setting && $setting->twitter)
             <a href="{{ $setting->twitter }}" target="_blank" class="social-icon twitter" style="display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: #1DA1F2; color: white; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; font-size: 18px;">
-              <i class="fab fa-twitter"></i>
+              <i class="fab fa-twitter" style="color: white; margin-left: 0px;"></i>
             </a>
           @endif
 

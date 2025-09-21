@@ -221,6 +221,13 @@
                         <p> {{ __('messages.footer_settings') }} </p>
                     </a>
                 </li>
+             
+                <li class="nav-item">
+                    <a href="{{ route('icon_headers.index') }}" class="nav-link">
+                        <i class="fas fa-bullhorn nav-icon"></i>
+                        <p> {{ __('messages.icon_headers') }} </p>
+                    </a>
+                </li>
 
                 {{-- System Configuration --}}
                 <li class="nav-header">{{ __('messages.system_configuration') }}</li>
@@ -244,27 +251,7 @@
                     </a>
                 </li>
 
-                @if ($user->can('role-table') || $user->can('role-add') || $user->can('role-edit') || $user->can('role-delete'))
-                    <li class="nav-item">
-                        <a href="{{ route('admin.role.index') }}" class="nav-link">
-                            <i class="fas fa-user-shield nav-icon"></i>
-                            <span>{{ __('messages.Roles') }} </span>
-                        </a>
-                    </li>
-                @endif
-
-                @if (
-                    $user->can('employee-table') ||
-                        $user->can('employee-add') ||
-                        $user->can('employee-edit') ||
-                        $user->can('employee-delete'))
-                    <li class="nav-item">
-                        <a href="{{ route('admin.employee.index') }}" class="nav-link">
-                            <i class="fas fa-users nav-icon"></i>
-                            <span> {{ __('messages.Employee') }} </span>
-                        </a>
-                    </li>
-                @endif
+             
 
 
 

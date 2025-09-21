@@ -19,7 +19,8 @@ class HomeController extends Controller
     {
        $about = About::first();
        $tenders = Tender::limit(3)->orderBy('date_publish','asc')->get();
-       $banners = Banner::get();
+       $bannersTop = Banner::where('in_top',1)->get();
+       $bannersDown = Banner::where('in_top',2)->get();
        $services = Service::get();
        $publicSessions = PublicSession::orderBy('date_of_event','asc')->get();
        $projects = Projects::get();
@@ -35,7 +36,7 @@ class HomeController extends Controller
         });
     
 
-        return view('user.home',compact('events','banners','about','services','publicSessions','projects','advs','locale','tenders'));
+        return view('user.home',compact('events','bannersTop','bannersDown','about','services','publicSessions','projects','advs','locale','tenders'));
     }
     
     public function getAboutUs()

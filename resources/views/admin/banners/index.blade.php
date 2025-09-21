@@ -21,6 +21,7 @@
                             <th>{{ __('messages.title_en') }}</th>
                             <th>{{ __('messages.title_ar') }}</th>
                             <th>{{ __('messages.photo') }}</th>
+                            <th>{{ __('messages.in_top') }}</th>
                             <th>{{ __('messages.created_at') }}</th>
                             <th>{{ __('messages.actions') }}</th>
                         </tr>
@@ -34,6 +35,13 @@
                             <td>
                                 @if($banner->photo)
                                     <img src="{{ asset('assets/admin/uploads/' . $banner->photo) }}" alt="Banner" style="width: 50px; height: 50px; object-fit: cover;">
+                                @endif
+                            </td>
+                            <td>
+                                @if($banner->in_top == 1)
+                                    <span class="badge bg-success">{{ __('messages.yes') }}</span>
+                                @else
+                                    <span class="badge bg-secondary">{{ __('messages.no') }}</span>
                                 @endif
                             </td>
                             <td>{{ $banner->created_at }}</td>

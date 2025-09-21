@@ -28,6 +28,7 @@ class BannerController extends Controller
             'title_ar' => 'required|string|max:255',
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
+            'in_top' => 'required',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -38,6 +39,7 @@ class BannerController extends Controller
             'title_ar' => $request->title_ar,
             'description_en' => $request->description_en,
             'description_ar' => $request->description_ar,
+            'in_top' => $request->in_top,
             'photo' => $photoPath,
             'created_at' => now(),
             'updated_at' => now(),
@@ -62,6 +64,7 @@ class BannerController extends Controller
             'title_ar' => 'required|string|max:255',
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
+            'in_top' => 'required',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -75,6 +78,7 @@ class BannerController extends Controller
             'title_ar' => $request->title_ar,
             'description_en' => $request->description_en,
             'description_ar' => $request->description_ar,
+            'in_top' => $request->in_top,
             'updated_at' => now(),
         ];
 

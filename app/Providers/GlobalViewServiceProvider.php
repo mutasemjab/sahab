@@ -21,9 +21,7 @@ class GlobalViewServiceProvider extends ServiceProvider
    public function boot()
     {
         // Get the settings
-        $setting = \Cache::rememberForever('site.setting', function () {
-            return Setting::first();
-        });
+        $setting = Setting::first();
 
         // Get current locale
         $locale = app()->getLocale();
